@@ -10,3 +10,5 @@ let betMulti = 0;
 
 const winMulti = 2;
 const blackJackMulti = 3;
+
+document.addEventListener("contextmenu", (e) => e.preventDefault);

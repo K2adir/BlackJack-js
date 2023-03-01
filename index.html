@@ -5,8 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./components/constant.js" defer></script>
+    <script src="./components/deckCreator.js" defer></script>
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div class="score hidden" id="dealer_score">
+      <p>Dealer score <span></span></p>
+    </div>
+
+    <div id="openning_message_banner" class="hidden">
+      <h1>
+        <img src="assets/hearts.svg" style="width: 0.7em" /><img
+          src="assets/spades.svg"
+          style="width: 0.7em"
+        />
+        Blackjack
+        <img src="assets/diamonds.svg" style="width: 0.7em" /><img
+          src="assets/clubs.svg"
+          style="width: 0.7em"
+        />
+      </h1>
+    </div>
+
+    <ul class="hand" id="dealer_hand"></ul>
+  </body>
 </html>
