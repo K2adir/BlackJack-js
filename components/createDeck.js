@@ -25,11 +25,7 @@ const createDeck = (suit) => {
 
   function createNormalCards(suit) {
     for (let i = 2; i <= 10; i++) {
-      let cardWord = "card";
-      let cardNumber = i;
-      let card = cardWord + cardNumber;
-
-      card = new Card(i, suit, i);
+      let card = new Card(i, suit, i);
       deck.push(card);
     }
   }
