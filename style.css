@@ -37,3 +37,11 @@ body {
   height: 100%;
   background-attachment: fixed;
 }
+
+h1 {
+  font-size: 4rem;
+}
+
+ul {
+  list-style: none;
+}
