@@ -4,7 +4,7 @@ const createDeck = (suit) => {
   function createAce(suit) {
     let cardWord = "card";
     let cardNumber = 1;
-    let card = cardNumber + cardWord;
+    let card = cardWord + cardNumber;
     // THIS NEEDS IF STATEMENT, IT CAN EQUAL TO 1 OR 11;
     card = new Card("A", suit, 11);
     deck.push(card);
@@ -23,7 +23,21 @@ const createDeck = (suit) => {
     card = "card" + 13;
     card = new Card("K", suit, 10);
   }
+
+  function createNormalCards(suit) {
+    for (let i = 2; i <= 10; i++) {
+      let cardWord = "card";
+      let cardNumber = i;
+      let card = cardWord + cardNumber;
+
+      card = new Card(i, suit, i);
+      deck.push(card);
+    }
+  }
 };
 
-deck.push("a");
+createDeck("hearts");
+createDeck("clubs");
+createDeck("spades");
+createDeck("clubs");
 console.log(deck);
