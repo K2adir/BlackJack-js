@@ -34,10 +34,9 @@ const createDeck = (suit) => {
       deck.push(card);
     }
   }
+  createDeck("hearts");
+  createDeck("clubs");
+  createDeck("spades");
+  createDeck("clubs");
+  console.log(deck);
 };
-
-createDeck("hearts");
-createDeck("clubs");
-createDeck("spades");
-createDeck("clubs");
-console.log(deck);
