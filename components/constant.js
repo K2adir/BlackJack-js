@@ -1,5 +1,6 @@
 let playerHand = [];
 let computerHand = [];
+let deck = [];
 //
 let currentPlayerCards = 0;
 let currentComputerCards = 0;
