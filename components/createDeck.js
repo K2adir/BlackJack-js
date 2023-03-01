@@ -1,12 +1,12 @@
 const createDeck = (suit) => {
-  deck = [];
+  const deck = [];
 
   function createAce(suit) {
-    let cardWord = "card";
-    let cardNumber = 1;
-    let card = cardWord + cardNumber;
-    // THIS NEEDS IF STATEMENT, IT CAN EQUAL TO 1 OR 11;
-    card = new Card("A", suit, 11);
+    let value = 11;
+    if (suit === "spades" || suit === "clubs") {
+      value = 1;
+    }
+    let card = new Card("A", suit, value);
     deck.push(card);
   }
 
