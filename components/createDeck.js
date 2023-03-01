@@ -11,17 +11,16 @@ const createDeck = (suit) => {
   }
 
   function crateFace(suit) {
-    // Card(LETTER, SUIT, VALUE)
+    // Name , suit,  value
     // J
-    let card = "card" + 11;
-    card = new Card("J", suit, 10);
+    let card = new Card("J", suit, 10);
     deck.push(card);
     // Q
-    card = "card" + 12;
     card = new Card("Q", suit, 10);
+    deck.push(card);
     // K
-    card = "card" + 13;
     card = new Card("K", suit, 10);
+    deck.push(card);
   }
 
   function createNormalCards(suit) {
@@ -34,9 +33,17 @@ const createDeck = (suit) => {
       deck.push(card);
     }
   }
-  createDeck("hearts");
-  createDeck("clubs");
-  createDeck("spades");
-  createDeck("clubs");
-  console.log(deck);
+  createAce(suit);
+  crateFace(suit);
+  createNormalCards(suit);
+
+  return deck;
 };
+
+const hearts = createDeck("hearts");
+const clubs = createDeck("clubs");
+const spades = createDeck("spades");
+const diamonds = createDeck("diamonds");
+
+const fullDeck = hearts.concat(clubs, spades, diamonds);
+console.log(fullDeck);
