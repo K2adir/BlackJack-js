@@ -1,37 +1,19 @@
 const createDeck = (suit) => {
   const deck = [];
 
-  function createAce(suit) {
-    let value = 11;
-    if (suit === "spades" || suit === "clubs") {
-      value = 1;
-    }
-    let card = new Card("A", suit, value);
+  const createCard = (number, suit, value) => {
+    const card = new Card(number, suit, value);
     deck.push(card);
+  };
+
+  for (let i = 2; i <= 10; i++) {
+    createCard(i, suit, i);
   }
 
-  function crateFace(suit) {
-    // J
-    let card = new Card("J", suit, 10);
-    deck.push(card);
-    // Q
-    card = new Card("Q", suit, 10);
-    deck.push(card);
-    // K
-    card = new Card("K", suit, 10);
-    deck.push(card);
-  }
-
-  function createNormalCards(suit) {
-    for (let i = 2; i <= 10; i++) {
-      let card = new Card(i, suit, i);
-      deck.push(card);
-    }
-  }
-
-  createAce(suit);
-  crateFace(suit);
-  createNormalCards(suit);
+  createCard("A", suit, 11);
+  createCard("J", suit, 10);
+  createCard("Q", suit, 10);
+  createCard("K", suit, 10);
 
   return deck;
 };
