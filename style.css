@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  /* stop text highlight */
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  background-image: linear-gradient(
+    45deg,
+    hsl(136deg 100% 20%) 0%,
+    hsl(134deg 100% 19%) 3%,
+    hsl(131deg 100% 18%) 7%,
+    hsl(128deg 100% 17%) 11%,
+    hsl(124deg 100% 16%) 17%,
+    hsl(120deg 100% 15%) 23%,
+    hsl(120deg 100% 14%) 30%,
+    hsl(120deg 100% 13%) 37%,
+    hsl(120deg 100% 12%) 45%,
+    hsl(120deg 100% 11%) 53%,
+    hsl(120deg 100% 10%) 60%,
+    hsl(120deg 100% 9%) 68%,
+    hsl(120deg 100% 8%) 75%,
+    hsl(120deg 100% 8%) 81%,
+    hsl(120deg 100% 7%) 86%,
+    hsl(120deg 100% 7%) 91%,
+    hsl(120deg 100% 6%) 95%,
+    hsl(120deg 100% 5%) 98%,
+    hsl(0deg 0% 0%) 100%
+  );
+
+  background-repeat: no-repeat;
+  height: 100%;
+  background-attachment: fixed;
+}
