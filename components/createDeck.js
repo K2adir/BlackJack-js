@@ -24,4 +24,4 @@ const spades = createDeck("spades");
 const diamonds = createDeck("diamonds");
 
 const fullDeck = hearts.concat(clubs, spades, diamonds);
-console.log(fullDeck);
+console.log(fullDeck, "f -> createDeck.js");
