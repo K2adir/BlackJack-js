@@ -11,7 +11,6 @@ const createDeck = (suit) => {
   }
 
   function crateFace(suit) {
-    // Name , suit,  value
     // J
     let card = new Card("J", suit, 10);
     deck.push(card);
@@ -29,6 +28,7 @@ const createDeck = (suit) => {
       deck.push(card);
     }
   }
+
   createAce(suit);
   crateFace(suit);
   createNormalCards(suit);
