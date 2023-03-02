@@ -1,7 +1,7 @@
-const hasAnAce = (playerHand) => {
+const hasAnAce = (playerCards) => {
   let hasAce = false;
-  for (i = 0; i < playerHand.length; i++) {
-    if (playerHand[i]._value === 11) {
+  for (i = 0; i < playerCards.length; i++) {
+    if (playerCards[i]._value === 11) {
       hasAce = true;
       break;
     }
@@ -9,7 +9,7 @@ const hasAnAce = (playerHand) => {
   }
 };
 
-console.log(playerHand, "checkAce.js -> checks player Cards");
+console.log(playerCards, "checkAce.js -> checks player Cards");
 
 function turnAceToOne(cardsWhereTheAceIs) {
   const aceIndex = cardsWhereTheAceIs.findIndex((card) => card.value > 10);

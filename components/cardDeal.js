@@ -21,12 +21,12 @@ function totalValue(player) {
   return result;
 }
 
-function tellCurrentValue(playerHand) {
-  return "The cards add to " + totalValue(playerHand) + ".";
+function tellCurrentValue(playerCards) {
+  return "The cards add to " + totalValue(playerCards) + ".";
 }
-console.log(playerHand);
+console.log(playerCards);
 
-console.log(tellCurrentValue(playerHand), "x");
+console.log(tellCurrentValue(playerCards), "x");
 //
 function currentHand(player) {
   let currentHand = "";

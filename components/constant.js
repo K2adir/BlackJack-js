@@ -1,5 +1,5 @@
-let playerHand = [];
-let computerHand = [];
+let playerCards = [];
+let dealerCards = [];
 let deck = [];
 //
 let currentPlayerCards = 0;
