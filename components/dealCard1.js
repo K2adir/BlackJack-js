@@ -1,10 +1,11 @@
 function dealFirstCards() {
-  // Player and computer got two cards
+  // dealt two cards
   playerCards.push(randomCard(), randomCard());
   currentPlayerCards = 2;
   dealerCards.push(randomCard(), randomCard());
   currentComputerCards = 2;
 
+  //  HUD
   showHUD();
 
   //  first cards animation
@@ -14,8 +15,7 @@ function dealFirstCards() {
 
   setTimeout(() => addCardtoDealer(1), cardDealingTimeout * 2);
 
-  ////
-  // For the flipped card
+  // flipped card
   const secondCardDealerFlipped = document.createElement("li");
 
   secondCardDealerFlipped.classList.add("card", "flipped", "undealed_dealer");
@@ -28,7 +28,7 @@ function dealFirstCards() {
 
   appendCardDealerAnimation();
 
-  // Check  Ace
+  // Check if an Ace
   if (totalValue(playerCards) > 21 && hasAnAce(playerCards)) {
     turnAceToOne(playerCards);
     document
@@ -36,7 +36,7 @@ function dealFirstCards() {
       .classList.remove("hidden");
   }
 
-  // Check blackjack
+  // Check if the player got a blackjack
   if (totalValue(playerCards) == 21) {
     blackjackCheck();
   } else {
