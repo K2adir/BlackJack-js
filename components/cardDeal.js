@@ -8,3 +8,7 @@ const randomCard = () => {
 console.log(randomCard(), "cardDeal. f -> randomCard() ");
 
 ///
+
+function describeDealtCard(dealtCard) {
+  return dealtCard.number + " of " + dealtCard.suit;
+}
