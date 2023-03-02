@@ -134,9 +134,6 @@ function tellCurrentValue(playerCards) {
   return "The cards add to " + totalValue(playerCards) + ".";
 }
 
-console.log(describeDealtCard(player[i]), "xxx");
-console.log(tellCurrentValue(playerCards), "yyy");
-
 /////////// ==== == == = = =
 
 ///// CHECK ACE //////
