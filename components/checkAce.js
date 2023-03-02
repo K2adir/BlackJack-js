@@ -1,7 +1,7 @@
 const hasAnAce = (playerHand) => {
   let hasAce = false;
   for (i = 0; i < playerHand.length; i++) {
-    if (playerCards[i]._value === 11) {
+    if (playerHand[i]._value === 11) {
       hasAce = true;
       break;
     }
@@ -17,4 +17,14 @@ function turnAceToOne(cardsWhereTheAceIs) {
     cardsWhereTheAceIs[aceIndex]._value = 1;
     console.log("Ace value changed to 1 to avoid bust.");
   }
+}
+
+function turnAceToOne(cardsWhereTheAceIs) {
+  function findAce(cardToFind) {
+    return cardToFind.value > 10;
+  }
+
+  let indexOfAce = cardsWhereTheAceIs.findIndex(findAce);
+  cardsWhereTheAceIs[indexOfAce]._value = 1;
+  // console.log("Total value over 21. The Ace value becomes 1.");
 }
