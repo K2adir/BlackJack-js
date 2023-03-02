@@ -170,3 +170,19 @@ function turnAceToOne(cardsWhereTheAceIs) {
 }
 
 // ======================
+
+function suitToStrImg(player, card) {
+  let cardSuit = player[card - 1].suit;
+  switch (cardSuit) {
+    case "hearts":
+      return '<img src="./assets/hearts.svg">';
+    case "diamonds":
+      return '<img src="./assets/cardBack.svg">';
+    case "clubs":
+      return '<img src="./assets/clubs.svg">';
+    case "spades":
+      return '<img src="./assets/spades.svg" >';
+    default:
+      return "";
+  }
+}
