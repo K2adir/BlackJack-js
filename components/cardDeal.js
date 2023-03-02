@@ -25,8 +25,8 @@ function tellCurrentValue(playerHand) {
   return "The cards add to " + totalValue(playerHand) + ".";
 }
 console.log(playerHand);
-console.log(tellCurrentValue(playerHand), "x");
 
+console.log(tellCurrentValue(playerHand), "x");
 //
 function currentHand(player) {
   let currentHand = "";
