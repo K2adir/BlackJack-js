@@ -45,3 +45,7 @@ h1 {
 ul {
   list-style: none;
 }
+
+.card img {
+  width: 2em;
+}
