@@ -9,3 +9,8 @@ function updateBet() {
     betMulti = bet;
   }
 }
+
+function hideDoubleDownAndAceButtons() {
+  document.querySelector("#double_down").classList.add("hidden");
+  document.querySelector("#ace_becomes_one_player").classList.add("hidden");
+}
