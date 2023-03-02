@@ -186,3 +186,14 @@ function suitToStrImg(player, card) {
       return "";
   }
 }
+
+function cardDom(player, card) {
+  let cardNumber = player[card - 1].number;
+
+  // Remove this line after checking
+  //   let cardSuit = player[card - 1].suit;
+
+  let output = cardNumber;
+
+  return output;
+}
