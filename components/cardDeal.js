@@ -46,3 +46,14 @@ function currentHand(player) {
   }
   return "current hand is: " + currentHand;
 }
+
+function describeDealtCard(dealtCard) {
+  return dealtCard.number + " of " + dealtCard.suit;
+}
+
+function tellCurrentValue(playerCards) {
+  return "The cards add to " + totalValue(playerCards) + ".";
+}
+
+console.log(describeDealtCard(dealtCard), "xxx");
+console.log(tellCurrentValue(playerCards), "yyy");

@@ -49,3 +49,9 @@ ul {
 .card img {
   width: 2em;
 }
+
+#dealer_hand {
+  position: fixed;
+  left: 40%;
+  top: 3%;
+}
