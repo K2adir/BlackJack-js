@@ -121,4 +121,13 @@ function dealersDecision() {
   else dealerTakeACard();
 }
 
-function dealerTakeACard() {}
+function dealerTakeACard() {
+  updateDealerScore();
+  setTimeout(() => {
+    dealerCards.push(randomCard());
+    currentComputerCards++;
+    addCardtoDealer(currentComputerCards);
+    updateDealerScore();
+    dealersDecision();
+  }, cardTimeout);
+}
