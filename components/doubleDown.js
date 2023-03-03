@@ -57,4 +57,19 @@ function checkForBustOrBlackjack() {
   }
 }
 
-function hit() {}
+function hit() {
+  document.getElementById("double_down").classList.add("hidden");
+  document.getElementById("ace_becomes_one_player").classList.add("hidden");
+
+  playerCards.push(randomCard());
+  currentPlayerCards++;
+
+  addCardtoPlayer(currentPlayerCards);
+
+  if (totalValue(playerCards) > 21 && hasAnAce(playerCards)) {
+    turnAceToOne(playerCards);
+    document
+      .getElementById("ace_becomes_one_player")
+      .classList.remove("hidden");
+  }
+}
