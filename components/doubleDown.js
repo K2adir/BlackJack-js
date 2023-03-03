@@ -224,16 +224,19 @@ function dealerBust() {
 
 function youWin() {
   regularPrize();
-  gameStarted = false;
-  const messageHolder = document.querySelector("#big_event_message_holder");
-  updateUI("#big_event_message_holder h1").textContent = "You win!";
-  updateUI("#big_event_message_holder h3").textContent =
-    "You got better cards'";
-  updateUI("#big_event_message_holder h2").textContent = `You won ${
-    betMulti * winMulti - betMulti
-  }$`;
 
-  messageHolder.classList.remove("hidden");
+  gameStarted = false;
+  document.querySelector("#big_event_message_holder h1").textContent =
+    "You win!";
+  document.querySelector("#big_event_message_holder h3").textContent =
+    "Your cards value is higher than dealers'";
+  document.querySelector(
+    "#big_event_message_holder h2"
+  ).textContent = `You won ${betMulti * winMulti - betMulti}$`;
+
+  document
+    .querySelector("#big_event_message_holder")
+    .classList.remove("hidden");
 }
 
 function youLose() {
@@ -272,5 +275,20 @@ document
 document.addEventListener("keyup", function (e) {
   if (!gameStarted && e.key != 13) {
     gameStart();
+  }
+});
+
+document.querySelector("#hit").addEventListener("click", function () {
+  if (playerTurn === true && gameStarted) {
+    playerTurn = false;
+    hit();
+  }
+});
+
+document.addEventListener("keyup", function (e) {
+  if (playerTurn === true && gameStarted && e.key === 39) {
+    playerTurn = false;
+    hit();
+    playerTurn = true;
   }
 });
