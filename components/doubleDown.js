@@ -87,3 +87,5 @@ function hit() {
     playerTurn = true;
   }
 }
+
+function stand() {}
