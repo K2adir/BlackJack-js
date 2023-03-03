@@ -258,3 +258,13 @@ function bankruptcy() {
   updateUI("#big_event_message_holder h2").textContent = `Get out of here!`;
   updateUI("#big_event_message_holder").classList.remove("hidden");
 }
+
+// buttons
+
+document
+  .querySelector("#big_event_message_holder")
+  .addEventListener("click", function (e) {
+    if (!gameStarted) {
+      gameStart();
+    }
+  });
