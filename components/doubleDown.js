@@ -136,3 +136,18 @@ function updateDealerScore() {
   document.querySelector("#dealer_score span").textContent =
     totalValue(dealerCards);
 }
+
+function decideWinner() {
+  setTimeout(() => {
+    switch (true) {
+      case totalValue(playerCards) > totalValue(dealerCards):
+        youWin();
+        break;
+      case totalValue(playerCards) === totalValue(dealerCards):
+        push();
+        break;
+      default:
+        youLose();
+    }
+  }, bigSignTimeout);
+}
