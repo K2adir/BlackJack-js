@@ -74,9 +74,9 @@ ul {
 }
 
 .button_list button {
-  border-radius: 50em;
-  width: 15em;
-  height: 15em;
+  border-radius: 50px;
+  width: 5em;
+  height: 5em;
 
   outline: none;
 }
