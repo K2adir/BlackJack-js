@@ -211,8 +211,7 @@ function playerBust() {
 function dealerBust() {
   regularPrize();
   gameStarted = false;
-
-  const messageHolder = $("#big_event_message_holder");
+  const messageHolder = document.querySelector("#big_event_message_holder");
   updateUI("#big_event_message_holder h1", "You win!");
   updateUI("#big_event_message_holder h3", "Dealer cards are over 21");
   updateUI(
@@ -220,5 +219,5 @@ function dealerBust() {
     `You won ${betMulti * winMulti - betMulti}$`
   );
 
-  messageHolder.removeClass("hidden");
+  messageHolder.classList.remove("hidden");
 }
