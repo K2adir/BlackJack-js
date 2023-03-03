@@ -162,3 +162,10 @@ function blackjackCheck() {
       break;
   }
 }
+
+function blackjack() {
+  blackjackPrize();
+  gameStarted = false;
+  document.querySelector("#big_event_message_holder h1").textContent =
+    "Blackjack!";
+}
