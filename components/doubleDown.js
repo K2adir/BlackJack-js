@@ -268,3 +268,9 @@ document
       gameStart();
     }
   });
+
+document.addEventListener("keyup", function (e) {
+  if (!gameStarted && e.key != 13) {
+    gameStart();
+  }
+});
