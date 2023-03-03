@@ -103,3 +103,5 @@ function stand() {
 
   dealersDecision();
 }
+
+function dealersDecision() {}
