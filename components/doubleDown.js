@@ -166,9 +166,36 @@ function blackjackCheck() {
 function blackjack() {
   blackjackPrize();
   gameStarted = false;
+
   document.querySelector("#big_event_message_holder h1").textContent =
     "Blackjack!";
 
   document.querySelector("#big_event_message_holder h3").textContent =
     "Double prize!";
+
+  document.querySelector(
+    "#big_event_message_holder h2"
+  ).textContent = `You won ${betMulti * blackJackMulti - betMulti}$`;
+
+  document
+    .querySelector("#big_event_message_holder")
+    .classList.remove("hidden");
+}
+
+function blackjackPush() {
+  handleNoPrize();
+
+  gameStarted = false;
+
+  document.querySelector("#big_event_message_holder h1").textContent =
+    "Blackjack!";
+  document.querySelector("#big_event_message_holder h3").textContent =
+    "The dealer has Blackjack too";
+  document.querySelector(
+    "#big_event_message_holder h2"
+  ).textContent = `You recovered your ${betAmount}$`;
+
+  document
+    .querySelector("#big_event_message_holder")
+    .classList.remove("hidden");
 }
