@@ -1,3 +1,12 @@
+function doubleDown() {
+  updateBet();
+  refreshBetHUD();
+  hideDoubleDownAndAceButtons();
+  addCardToPlayerHand();
+  updatePlayerScore();
+  checkForBustOrBlackjack();
+}
+
 function updateBet() {
   if (bet * 2 <= bank) {
     bank -= bet;
