@@ -97,3 +97,18 @@ ul {
   left: 50%;
   top: 4%;
 }
+
+#double_down {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 17em;
+  right: 1.8em;
+  padding: 0px;
+}
+
+#stand,
+#button_less_bet {
+  position: fixed;
+  left: 3em;
+  bottom: 3em;
+}
