@@ -82,14 +82,6 @@ function randomCard() {
 }
 
 function totalValue(player) {
-  let result = 0;
-  for (i = 0; i < player.length; i++) {
-    result += player[i].value;
-  }
-  return result;
-}
-
-function totalValue(player) {
   return player.reduce((total, card) => total + card.value, 0);
 }
 
