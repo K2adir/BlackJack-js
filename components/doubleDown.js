@@ -56,3 +56,5 @@ function checkForBustOrBlackjack() {
     }, bigSignTimeout);
   }
 }
+
+function hit() {}
