@@ -58,6 +58,7 @@ function checkForBustOrBlackjack() {
 }
 
 function hit() {
+  // Hide double down and ace becomes one buttons
   document.getElementById("double_down").classList.add("hidden");
   document.getElementById("ace_becomes_one_player").classList.add("hidden");
 
@@ -71,5 +72,18 @@ function hit() {
     document
       .getElementById("ace_becomes_one_player")
       .classList.remove("hidden");
+  }
+
+  document.querySelector("#player_score span").textContent =
+    totalValue(playerCards);
+
+  if (totalValue(playerCards) > 21) {
+    playerTurn = false;
+    gameStarted = false;
+    setTimeout(function () {
+      playerBust();
+    }, bigSignTimeout);
+  } else {
+    playerTurn = true;
   }
 }
