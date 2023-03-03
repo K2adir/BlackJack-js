@@ -200,6 +200,18 @@ function blackjackPush() {
     .classList.remove("hidden");
 }
 
+// use updateUI for other messages as well, when the project is completed.
 function updateUI(selector, text) {
   document.querySelector(selector).textContent = text;
+}
+
+function playerBust() {
+  losePrize();
+  gameStarted = false;
+
+  const messageHolder = document.querySelector("#big_event_message_holder");
+  updateUI("#big_event_message_holder h1", "Bust! You Lose!");
+  updateUI("#big_event_message_holder h3", "Your cards are over 21");
+  updateUI("#big_event_message_holder h2", `You lose ${betMulti}$`);
+  messageHolder.classList.remove("hidden");
 }
