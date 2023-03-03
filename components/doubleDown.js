@@ -88,4 +88,11 @@ function hit() {
   }
 }
 
-function stand() {}
+function stand() {
+  document.getElementById("ace_becomes_one_player").classList.add("hidden");
+
+  const cardsToBeRemoved = document.querySelectorAll(".flipped");
+  cardsToBeRemoved.forEach(function (card) {
+    card.remove();
+  });
+}
