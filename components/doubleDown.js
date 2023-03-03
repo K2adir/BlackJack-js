@@ -105,6 +105,13 @@ function stand() {
 }
 
 function dealersDecision() {
+  if (totalValue(dealerCards) > 21 && hasAnAce(dealerCards))
+    turnAceToOne(dealerCards);
+
+  // Update dealer score
+  document.querySelector("#dealer_score span").textContent =
+    totalValue(dealerCards);
+
   if (totalValue(dealerCards) > 21)
     setTimeout(function () {
       dealerBust();
@@ -113,3 +120,5 @@ function dealersDecision() {
   else if (totalValue(dealerCards) >= 17) decideWinner();
   else dealerTakeACard();
 }
+
+function dealerTakeACard() {}
