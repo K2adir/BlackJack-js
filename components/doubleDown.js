@@ -151,3 +151,14 @@ function decideWinner() {
     }
   }, bigSignTimeout);
 }
+
+function blackjackCheck() {
+  switch (true) {
+    case totalValue(playerCards) > totalValue(dealerCards):
+      setTimeout(blackjack, bigSignTimeout);
+      break;
+    case totalValue(playerCards) === totalValue(dealerCards):
+      setTimeout(blackjackPush, bigSignTimeout);
+      break;
+  }
+}
