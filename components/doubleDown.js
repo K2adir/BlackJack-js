@@ -168,4 +168,7 @@ function blackjack() {
   gameStarted = false;
   document.querySelector("#big_event_message_holder h1").textContent =
     "Blackjack!";
+
+  document.querySelector("#big_event_message_holder h3").textContent =
+    "Double prize!";
 }
