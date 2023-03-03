@@ -1,3 +1,5 @@
+// use updateUI to display other messages as well, when the project is completed.
+
 function doubleDown() {
   updateBet();
   refreshBetHUD();
