@@ -31,3 +31,19 @@ function updatePlayerScore() {
   document.querySelector("#player_score span").textContent =
     totalValue(playerCards);
 }
+
+function checkForBustOrBlackjack() {
+  if (totalValue(playerCards) > 21) {
+    playerTurn = false;
+    gameStarted = false;
+    setTimeout(function () {
+      playerBust();
+    }, bigSignTimeout);
+  } else if (totalValue(playerCards) == 21) {
+    blackjackCheck();
+  } else {
+    setTimeout(function () {
+      stand();
+    }, bigSignTimeout);
+  }
+}
