@@ -55,22 +55,21 @@ class Card {
   }
 }
 
-const createDeck = (suit) => {
-  const deck = [];
+function createDeck() {
+  function createSuit(suit) {
+    deck.push(new Card("A", suit, 11));
 
-  const createCard = (number, suit, value) => {
-    const card = new Card(number, suit, value);
-    deck.push(card);
-  };
+    for (let i = 2; i <= 10; i++) {
+      deck.push(new Card(i, suit, i));
+    }
 
-  for (let i = 2; i <= 10; i++) {
-    createCard(i, suit, i);
+    deck.push(new Card("J", suit, 10));
+    deck.push(new Card("Q", suit, 10));
+    deck.push(new Card("K", suit, 10));
   }
 
-  createCard("A", suit, 11);
-  createCard("J", suit, 10);
-  createCard("Q", suit, 10);
-  createCard("K", suit, 10);
-
-  return deck;
-};
+  createSuit("hearts");
+  createSuit("diamonds");
+  createSuit("spades");
+  createSuit("clubs");
+}
