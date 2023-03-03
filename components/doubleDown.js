@@ -131,3 +131,8 @@ function dealerTakeACard() {
     dealersDecision();
   }, cardTimeout);
 }
+
+function updateDealerScore() {
+  document.querySelector("#dealer_score span").textContent =
+    totalValue(dealerCards);
+}
