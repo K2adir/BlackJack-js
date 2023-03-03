@@ -199,3 +199,7 @@ function blackjackPush() {
     .querySelector("#big_event_message_holder")
     .classList.remove("hidden");
 }
+
+function updateUI(selector, text) {
+  document.querySelector(selector).textContent = text;
+}
