@@ -221,3 +221,17 @@ function dealerBust() {
 
   messageHolder.classList.remove("hidden");
 }
+
+function youWin() {
+  regularPrize();
+  gameStarted = false;
+  const messageHolder = document.querySelector("#big_event_message_holder");
+  updateUI("#big_event_message_holder h1").textContent = "You win!";
+  updateUI("#big_event_message_holder h3").textContent =
+    "You got better cards'";
+  updateUI("#big_event_message_holder h2").textContent = `You won ${
+    betMulti * winMulti - betMulti
+  }$`;
+
+  messageHolder.classList.remove("hidden");
+}
