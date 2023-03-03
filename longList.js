@@ -21,84 +21,21 @@ document.addEventListener("contextmenu", (e) => e.preventDefault);
 
 // ====== DECK CLASS //////////
 
-class Card {
-  constructor(number, suit, value) {
-    this._number = number;
-    this._suit = suit;
-    this._value = value;
-  }
-
-  get suit() {
-    return this._suit;
-  }
-
-  get value() {
-    return this._value;
-  }
-
-  get number() {
-    return this._number;
-  }
-}
-
 ////// ===============/////
 
 // CREATE DECK  ---------/////
-
-const createDeck = (suit) => {
-  const deck = [];
-
-  const createCard = (number, suit, value) => {
-    const card = new Card(number, suit, value);
-    deck.push(card);
-  };
-
-  for (let i = 2; i <= 10; i++) {
-    createCard(i, suit, i);
-  }
-
-  createCard("A", suit, 11);
-  createCard("J", suit, 10);
-  createCard("Q", suit, 10);
-  createCard("K", suit, 10);
-
-  return deck;
-};
-
-const hearts = createDeck("hearts");
-const clubs = createDeck("clubs");
-const spades = createDeck("spades");
-const diamonds = createDeck("diamonds");
-
-const fullDeck = hearts.concat(clubs, spades, diamonds);
-console.log(fullDeck, "f -> createDeck.js");
 
 ////// ==========///////
 
 // CARD DEAL /////////--------
 
-const randomCard = () => {
-  let selectedCard = Math.round(Math.random() * (fullDeck.length - 1));
-  let dealtCard = fullDeck[selectedCard];
-  fullDeck.splice(selectedCard, 1);
-  return dealtCard;
-};
-
-console.log(randomCard(), "cardDeal. f -> randomCard() ");
-
-///
+// random card
 
 function describeDealtCard(dealtCard) {
   return dealtCard.number + " of " + dealtCard.suit;
 }
 
-function totalValue(player) {
-  let result = 0;
-  for (i = 0; i < player.length; i++) {
-    result += player[i].value;
-  }
-  return result;
-}
+// total value
 
 function tellCurrentValue(playerCards) {
   return "The cards add to " + totalValue(playerCards) + ".";

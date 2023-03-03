@@ -73,3 +73,22 @@ function createDeck() {
   createSuit("spades");
   createSuit("clubs");
 }
+
+// create random card improved
+function randomCard() {
+  const selectedCardIndex = Math.floor(Math.random() * deck.length);
+  const dealtCard = deck.splice(selectedCardIndex, 1)[0];
+  return dealtCard;
+}
+
+function totalValue(player) {
+  let result = 0;
+  for (i = 0; i < player.length; i++) {
+    result += player[i].value;
+  }
+  return result;
+}
+
+function totalValue(player) {
+  return player.reduce((total, card) => total + card.value, 0);
+}
