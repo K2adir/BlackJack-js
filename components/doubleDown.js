@@ -235,3 +235,26 @@ function youWin() {
 
   messageHolder.classList.remove("hidden");
 }
+
+function youLose() {
+  losePrize();
+  gameStarted = false;
+  const messageHolder = document.querySelector("#big_event_message_holder");
+  updateUI("#big_event_message_holder h1").textContent = "You lose!";
+  document.querySelector("#big_event_message_holder h3").textContent =
+    "Dealer cards value is higher than yours";
+  document.querySelector(
+    "#big_event_message_holder h2"
+  ).textContent = `You lose ${betMulti}$`;
+
+  messageHolder.classList.remove("hidden");
+}
+
+function bankruptcy() {
+  gameStarted = true;
+  updateUI("#big_event_message_holder h1").textContent = "Bankruptcy";
+  updateUI("#big_event_message_holder h3").textContent =
+    "Bring more money next time";
+  updateUI("#big_event_message_holder h2").textContent = `Get out of here!`;
+  updateUI("#big_event_message_holder").classList.remove("hidden");
+}
