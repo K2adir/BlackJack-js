@@ -104,4 +104,12 @@ function stand() {
   dealersDecision();
 }
 
-function dealersDecision() {}
+function dealersDecision() {
+  if (totalValue(dealerCards) > 21)
+    setTimeout(function () {
+      dealerBust();
+    }, bigSignTimeout);
+  else if (totalValue(dealerCards) == 21) decideWinner();
+  else if (totalValue(dealerCards) >= 17) decideWinner();
+  else dealerTakeACard();
+}
