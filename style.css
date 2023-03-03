@@ -55,3 +55,45 @@ ul {
   left: 40%;
   top: 3%;
 }
+
+.card img {
+  width: 2em;
+}
+
+.card h3 {
+  display: inline-block;
+  font-size: 2.75em;
+  padding: 0em;
+  margin: 0em;
+}
+
+.flipped {
+  background-image: url(assets/card_back.svg);
+  background-size: cover;
+  z-index: 10;
+}
+
+.button_list button {
+  border-radius: 50em;
+  width: 15em;
+  height: 15em;
+
+  outline: none;
+}
+
+#player_hand {
+  position: fixed;
+  bottom: 6%;
+  left: 25%;
+}
+
+#player_hand li,
+#dealer_hand li {
+  margin: 0 -2em;
+}
+
+#dealer_hand {
+  position: fixed;
+  left: 50%;
+  top: 4%;
+}
