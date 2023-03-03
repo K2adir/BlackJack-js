@@ -88,3 +88,12 @@ function totalValue(player) {
 function hasAnAce(playerCards) {
   return playerCards.some((card) => card._value === 11);
 }
+
+function turnAceToOne(deckWithAce) {
+  function findAce(cardToFind) {
+    return cardToFind.value > 10;
+  }
+
+  let indexOfAce = deckWithAce.findIndex(findAce);
+  deckWithAce[indexOfAce]._value = 1;
+}
