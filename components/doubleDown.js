@@ -165,46 +165,36 @@ function blackjackCheck() {
   }
 }
 
+// use updateUI for other messages as well, when the project is completed.
+function updateUI(selector, text) {
+  document.querySelector(selector).textContent = text;
+}
+
 function blackjack() {
   blackjackPrize();
   gameStarted = false;
 
-  document.querySelector("#big_event_message_holder h1").textContent =
-    "Blackjack!";
+  const messageHolder = document.querySelector("#big_event_message_holder");
+  updateUI("#big_event_message_holder h1", "Blackjack!");
+  updateUI("#big_event_message_holder h3", "Double prize!");
+  updateUI(
+    "#big_event_message_holder h2",
+    `You won ${betMulti * blackJackMulti - betMulti}$`
+  );
 
-  document.querySelector("#big_event_message_holder h3").textContent =
-    "Double prize!";
-
-  document.querySelector(
-    "#big_event_message_holder h2"
-  ).textContent = `You won ${betMulti * blackJackMulti - betMulti}$`;
-
-  document
-    .querySelector("#big_event_message_holder")
-    .classList.remove("hidden");
+  messageHolder.classList.remove("hidden");
 }
 
 function blackjackPush() {
   handleNoPrize();
-
   gameStarted = false;
 
-  document.querySelector("#big_event_message_holder h1").textContent =
-    "Blackjack!";
-  document.querySelector("#big_event_message_holder h3").textContent =
-    "The dealer has Blackjack too";
-  document.querySelector(
-    "#big_event_message_holder h2"
-  ).textContent = `You recovered your ${betAmount}$`;
+  const messageHolder = document.querySelector("#big_event_message_holder");
+  updateUI("#big_event_message_holder h1", "Blackjack!");
+  updateUI("#big_event_message_holder h3", "The dealer has Blackjack too");
+  updateUI("#big_event_message_holder h2", `You recovered your ${betAmount}$`);
 
-  document
-    .querySelector("#big_event_message_holder")
-    .classList.remove("hidden");
-}
-
-// use updateUI for other messages as well, when the project is completed.
-function updateUI(selector, text) {
-  document.querySelector(selector).textContent = text;
+  messageHolder.classList.remove("hidden");
 }
 
 function playerBust() {
