@@ -31,19 +31,8 @@ document.addEventListener("contextmenu", (e) => e.preventDefault);
 
 // random card
 
-function describeDealtCard(dealtCard) {
-  return dealtCard.number + " of " + dealtCard.suit;
-}
-
 // total value
 
-function tellCurrentValue(playerCards) {
-  return "The cards add to " + totalValue(playerCards) + ".";
-}
-console.log(playerCards);
-
-console.log(tellCurrentValue(playerCards), "x");
-//
 function currentHand(player) {
   let currentHand = "";
   for (i = 0; i < player.length; i++) {

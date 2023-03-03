@@ -92,3 +92,7 @@ function totalValue(player) {
 function totalValue(player) {
   return player.reduce((total, card) => total + card.value, 0);
 }
+
+function hasAnAce(playerCards) {
+  return playerCards.some((card) => card._value === 11);
+}
