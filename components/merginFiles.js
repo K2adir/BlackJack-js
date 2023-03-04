@@ -149,3 +149,10 @@ function appendCardPlayerAnimation() {
     card.classList.remove("undealed_player");
   });
 }
+
+function appendCardDealerAnimation() {
+  let undealedDealerCards = document.querySelectorAll(".undealed_dealer");
+  undealedDealerCards.forEach(function (card) {
+    card.classList.remove("undealed_dealer");
+  });
+}
