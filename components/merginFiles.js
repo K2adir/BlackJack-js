@@ -20,8 +20,6 @@ let cardTimeout = 600;
 let bigSignTimeout = 600;
 let cardDealingTimeout = 150;
 
-let keyboardTipCount = 0;
-let blackjackTipCount = 0;
 document.addEventListener("contextmenu", (e) => e.preventDefault);
 
 const debounce = (fn, delay) => {
@@ -156,3 +154,42 @@ function appendCardDealerAnimation() {
     card.classList.remove("undealed_dealer");
   });
 }
+
+//// BETTING ////////////////
+function increaseBet() {
+  if (bank > 0) {
+    bet += 5;
+    bank -= 5;
+  }
+}
+
+function decreaseBet() {
+  if (bet > 5) {
+    bet -= 5;
+    bank += 5;
+  }
+}
+
+function regularPrize() {
+  bank += bet * winMulti;
+  betMulti = bet;
+  bet = 0;
+}
+
+function noPrize() {
+  bank += bet;
+  betMulti = bet;
+  bet = 0;
+}
+
+function blackjackPrize() {
+  bank += bet * blackJackMulti;
+  betMulti = bet;
+  bet = 0;
+}
+
+function losePrize() {
+  betMulti = bet;
+  bet = 0;
+}
+//// BETTING ////////////////
