@@ -219,3 +219,15 @@ function cleanUpForNewGame() {
 
   aceBecomesOnePlayer.classList.add("hidden");
 }
+
+function refreshBetHUD() {
+  const elements = [
+    { selector: "#set_bank span", value: bank },
+    { selector: "#set_bet span", value: bet },
+    { selector: "#bet span", value: bet },
+    { selector: "#bank span", value: bank },
+  ];
+  elements.forEach(({ selector, value }) => {
+    document.querySelector(selector).textContent = value;
+  });
+}
