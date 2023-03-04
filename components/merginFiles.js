@@ -192,4 +192,30 @@ function losePrize() {
   betMulti = bet;
   bet = 0;
 }
-//// BETTING ////////////////
+////////////////////
+
+function cleanUpForNewGame() {
+  const playerScore = document.querySelector("#player_score span");
+  const dealerScore = document.querySelector("#dealer_score span");
+  const cards = document.querySelectorAll(".card");
+
+  const bigEventMessageHolder = document.querySelector(
+    "#big_event_message_holder"
+  );
+  const doubleDown = document.querySelector("#double_down");
+  const aceBecomesOnePlayer = document.querySelector("#ace_becomes_one_player");
+
+  playerScore.textContent = "";
+  dealerScore.textContent = "";
+
+  cards.forEach((card) => card.remove());
+
+  playerCards = [];
+  dealerCards = [];
+
+  bigEventMessageHolder.classList.add("hidden");
+
+  doubleDown.classList.add("hidden");
+
+  aceBecomesOnePlayer.classList.add("hidden");
+}
