@@ -85,6 +85,7 @@ function totalValue(player) {
   return player.reduce((total, card) => total + card.value, 0);
 }
 
+// .some used instead of for i
 function hasAnAce(playerCards) {
   return playerCards.some((card) => card._value === 11);
 }
@@ -96,4 +97,20 @@ function turnAceToOne(deckWithAce) {
 
   let indexOfAce = deckWithAce.findIndex(findAce);
   deckWithAce[indexOfAce]._value = 1;
+}
+
+function suitToStrImg(player, card) {
+  let cardSuit = player[card - 1].suit;
+  switch (cardSuit) {
+    case "hearts":
+      return '<img src="./assets/hearts.svg">';
+    case "diamonds":
+      return '<img src="./assets/cardBack.svg">';
+    case "clubs":
+      return '<img src="./assets/clubs.svg">';
+    case "spades":
+      return '<img src="./assets/spades.svg" >';
+    default:
+      return "";
+  }
 }
