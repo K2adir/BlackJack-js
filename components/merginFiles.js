@@ -231,3 +231,14 @@ function refreshBetHUD() {
     document.querySelector(selector).textContent = value;
   });
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function () { 
+    
+     const bigEventMessageHolder = document.querySelector(
+    "#big_event_message_holder"
+  );
+  bigEventMessageHolder.classList.remove("hidden");
+    
+}
