@@ -128,3 +128,17 @@ function addCardtoPlayer(cardNumber) {
   document.querySelector("#player_hand").appendChild(card);
   appendCardPlayerAnimation();
 }
+
+function addCardtoDealer(cardNumber) {
+  let card = document.createElement("li");
+  card.className = "card undealed_dealer";
+  card.id = "dealer_card";
+  card.innerHTML =
+    suitToStrImg(dealerCards, cardNumber) +
+    "<h3>" +
+    cardDom(dealerCards, cardNumber) +
+    "</h3>";
+
+  document.querySelector("#dealer_hand").appendChild(card);
+  appendCardDealerAnimation();
+}
