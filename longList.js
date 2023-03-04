@@ -84,15 +84,3 @@ function cardDom(player, card) {
 
   return output;
 }
-
-function addCardtoPlayer(cardNumber) {
-  let card = $(
-    '<li class="card undealed_player" id="player_card">' +
-      suitToStrImg(playerCards, cardNumber) +
-      "<h3>" +
-      cardDom(playerCards, cardNumber) +
-      "</h3></li>"
-  );
-
-  return $("#player_hand").append(card) + appendCardPlayerAnimation();
-}

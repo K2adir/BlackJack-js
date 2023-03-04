@@ -114,3 +114,17 @@ function suitToStrImg(player, card) {
       return "";
   }
 }
+
+function addCardtoPlayer(cardNumber) {
+  let card = document.createElement("li");
+  card.className = "card undealed_player";
+  card.id = "player_card";
+  card.innerHTML =
+    suitToStrImg(playerCards, cardNumber) +
+    "<h3>" +
+    cardDom(playerCards, cardNumber) +
+    "</h3>";
+
+  document.querySelector("#player_hand").appendChild(card);
+  appendCardPlayerAnimation();
+}
