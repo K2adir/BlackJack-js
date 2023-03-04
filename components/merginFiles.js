@@ -142,3 +142,10 @@ function addCardtoDealer(cardNumber) {
   document.querySelector("#dealer_hand").appendChild(card);
   appendCardDealerAnimation();
 }
+
+function appendCardPlayerAnimation() {
+  let undealedPlayerCards = document.querySelectorAll(".undealed_player");
+  undealedPlayerCards.forEach(function (card) {
+    card.classList.remove("undealed_player");
+  });
+}
