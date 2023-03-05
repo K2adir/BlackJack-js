@@ -400,49 +400,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function push() {
     noPrize();
-
     gameStarted = false;
-    document.querySelector("#big_event_message_holder h1").textContent =
-      "Push!";
-    document.querySelector("#big_event_message_holder h3").textContent =
-      "Player and dealer have the same score";
-    document.querySelector(
-      "#big_event_message_holder h2"
-    ).textContent = `Your recover your ${betMulti}$`;
-    document
-      .querySelector("#big_event_message_holder")
-      .classList.remove("hidden");
+    const messageHolder = document.querySelector("#big_event_message_holder");
+    updateUI("#big_event_message_holder h1", "Push!");
+    updateUI(
+      "#big_event_message_holder h3",
+      "Player and dealer have the same score"
+    );
+    updateUI("#big_event_message_holder h2", `You recover your ${betMulti}$`);
+    messageHolder.classList.remove("hidden");
   }
 
   function youWin() {
     regularPrize();
 
     gameStarted = false;
-    document.querySelector("#big_event_message_holder h1").textContent =
-      "You win!";
-    document.querySelector("#big_event_message_holder h3").textContent =
-      "Your cards value is higher than dealers'";
-    document.querySelector(
-      "#big_event_message_holder h2"
-    ).textContent = `You won ${betMulti * winMulti - betMulti}$`;
+    const messageHolder = document.querySelector("#big_event_message_holder");
+    updateUI("#big_event_message_holder h1", "You win!");
+    updateUI(
+      "#big_event_message_holder h3",
+      "Your cards value is higher than dealers'"
+    );
+    updateUI(
+      "#big_event_message_holder h2",
+      `You won ${betMulti * winMulti - betMulti}$`
+    );
 
-    document
-      .querySelector("#big_event_message_holder")
-      .classList.remove("hidden");
+    messageHolder.classList.remove("hidden");
   }
-
   function youLose() {
     losePrize();
-
     gameStarted = false;
-    document.querySelector("#big_event_message_holder h1").textContent =
-      "You lose!";
-    document.querySelector("#big_event_message_holder h3").textContent =
-      "Dealer cards value is higher than yours";
-    document.querySelector(
-      "#big_event_message_holder h2"
-    ).textContent = `You lose ${betMulti}$`;
-
+    updateUI("#big_event_message_holder h1", "You lose!");
+    updateUI(
+      "#big_event_message_holder h3",
+      "Dealer cards value is higher than yours"
+    );
+    updateUI("#big_event_message_holder h2", `You lose ${betMulti}$`);
     document
       .querySelector("#big_event_message_holder")
       .classList.remove("hidden");
@@ -450,11 +444,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function bankruptcy() {
     gameStarted = true;
-    document.querySelector("#big_event_message_holder h1").textContent =
-      "Bankruptcy";
-    document.querySelector("#big_event_message_holder h3").textContent =
-      "You Lost";
-    document.querySelector("#big_event_message_holder h2").textContent = ``;
+    updateUI("#big_event_message_holder h1", "Bankruptcy");
+    updateUI("#big_event_message_holder h3", "You Lost");
+    updateUI("#big_event_message_holder h2", "");
     document
       .querySelector("#big_event_message_holder")
       .classList.remove("hidden");
