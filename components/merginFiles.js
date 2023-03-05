@@ -447,4 +447,19 @@ function addCardToPlayerHand() {
       playerTurn = true;
     }
   }
+  function stand() {
+    document.getElementById("ace_becomes_one_player").classList.add("hidden");
+
+    const cardsToBeRemoved = document.querySelectorAll(".flipped");
+    cardsToBeRemoved.forEach(function (card) {
+      card.remove();
+    });
+
+    addCardtoDealer(currentComputerCards);
+
+    document.querySelector("#dealer_score span").textContent =
+      totalValue(dealerCards);
+
+    dealersDecision();
+  }
 }
