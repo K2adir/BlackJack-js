@@ -540,4 +540,66 @@ function addCardToPlayerHand() {
     messageHolder.classList.remove("hidden");
   }
 
+  
+  function blackjackPush() {
+    handleNoPrize();
+    gameStarted = false;
+
+    const messageHolder = document.querySelector("#big_event_message_holder");
+    updateUI("#big_event_message_holder h1", "Blackjack!");
+    updateUI("#big_event_message_holder h3", "The dealer has Blackjack too");
+    updateUI(
+      "#big_event_message_holder h2",
+      `You recovered your ${betAmount}$`
+    );
+
+    messageHolder.classList.remove("hidden");
+  }
+  
+  function dealerBust() {
+    regularPrize();
+    gameStarted = false;
+    const messageHolder = document.querySelector("#big_event_message_holder");
+    updateUI("#big_event_message_holder h1", "You win!");
+    updateUI("#big_event_message_holder h3", "Dealer cards are over 21");
+    updateUI(
+      "#big_event_message_holder h2",
+      `You won ${betMulti * winMulti - betMulti}$`
+    );
+
+    messageHolder.classList.remove("hidden");
+  }
+  function youWin() {
+    regularPrize();
+
+    gameStarted = false;
+    document.querySelector("#big_event_message_holder h1").textContent =
+      "You win!";
+    document.querySelector("#big_event_message_holder h3").textContent =
+      "Your cards value is higher than dealers'";
+    document.querySelector(
+      "#big_event_message_holder h2"
+    ).textContent = `You won ${betMulti * winMulti - betMulti}$`;
+
+    document
+      .querySelector("#big_event_message_holder")
+      .classList.remove("hidden");
+  }
+
+  function youLose() {
+    losePrize();
+
+    gameStarted = false;
+    document.querySelector("#big_event_message_holder h1").textContent =
+      "You lose!";
+    document.querySelector("#big_event_message_holder h3").textContent =
+      "Dealer cards value is higher than yours";
+    document.querySelector(
+      "#big_event_message_holder h2"
+    ).textContent = `You lose ${betMulti}$`;
+
+    document
+      .querySelector("#big_event_message_holder")
+      .classList.remove("hidden");
+  }
 }
