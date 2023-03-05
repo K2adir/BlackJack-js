@@ -525,4 +525,19 @@ function addCardToPlayerHand() {
   function updateUI(selector, text) {
     document.querySelector(selector).textContent = text;
   }
+  function blackjack() {
+    blackjackPrize();
+    gameStarted = false;
+
+    const messageHolder = document.querySelector("#big_event_message_holder");
+    updateUI("#big_event_message_holder h1", "Blackjack!");
+    updateUI("#big_event_message_holder h3", "Double prize!");
+    updateUI(
+      "#big_event_message_holder h2",
+      `You won ${betMulti * blackJackMulti - betMulti}$`
+    );
+
+    messageHolder.classList.remove("hidden");
+  }
+
 }
