@@ -496,4 +496,33 @@ function addCardToPlayerHand() {
       totalValue(dealerCards);
   }
   
+  function decideWinner() {
+    setTimeout(() => {
+      switch (true) {
+        case totalValue(playerCards) > totalValue(dealerCards):
+          youWin();
+          break;
+        case totalValue(playerCards) === totalValue(dealerCards):
+          push();
+          break;
+        default:
+          youLose();
+      }
+    }, bigSignTimeout);
+  }
+
+  function blackjackCheck() {
+    switch (true) {
+      case totalValue(playerCards) > totalValue(dealerCards):
+        setTimeout(blackjack, bigSignTimeout);
+        break;
+      case totalValue(playerCards) === totalValue(dealerCards):
+        setTimeout(blackjackPush, bigSignTimeout);
+        break;
+    }
+  }
+
+  function updateUI(selector, text) {
+    document.querySelector(selector).textContent = text;
+  }
 }
