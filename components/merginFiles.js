@@ -392,5 +392,16 @@ function addCardToPlayerHand() {
     currentPlayerCards++;
     addCardtoPlayer(currentPlayerCards);
   }
+  
+   function updatePlayerScore() {
+    if (totalValue(playerCards) > 21 && hasAnAce(playerCards)) {
+      turnAceToOne(playerCards);
+      document
+        .querySelector("#ace_becomes_one_player")
+        .classList.remove("hidden");
+    }
+    document.querySelector("#player_score span").textContent =
+      totalValue(playerCards);
+  }
 
 }

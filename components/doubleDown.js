@@ -192,17 +192,6 @@ function addCardtoPlayer(cardNumber) {
 
 // use updateUI to display other messages as well, when the project is completed.
 
-function updatePlayerScore() {
-  if (totalValue(playerCards) > 21 && hasAnAce(playerCards)) {
-    turnAceToOne(playerCards);
-    document
-      .querySelector("#ace_becomes_one_player")
-      .classList.remove("hidden");
-  }
-  document.querySelector("#player_score span").textContent =
-    totalValue(playerCards);
-}
-
 function checkForBustOrBlackjack() {
   if (totalValue(playerCards) > 21) {
     playerTurn = false;
