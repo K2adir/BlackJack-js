@@ -240,5 +240,59 @@ document.addEventListener("DOMContentLoaded", function () {
     "#big_event_message_holder"
   );
   bigEventMessageHolder.classList.remove("hidden");
-    
+
+ function gameStart() {
+    switch (true) {
+      case bank <= 0:
+        bankruptcy();
+        break;
+      default:
+        gameStarted = true;
+        cleanUpForNewGame();
+        createDeck();
+        setBet();
+        break;
+    }
+  }
+ 
+  function setBet() {
+    let betSetted = false;
+    const betWrapper = document.querySelector("#bet_wrapper");
+    const betButtons = document.querySelector("#bet_buttons");
+    const buttonMoreBet = document.querySelector("#button_more_bet");
+    const buttonLessBet = document.querySelector("#button_less_bet");
+    const buttonSetBet = document.querySelector("#button_set_bet");
+
+    betWrapper.classList.remove("hidden");
+    betButtons.classList.remove("hidden");
+
+    refreshBetHUD();
+
+   
+    buttonMoreBet.addEventListener("click", () => {
+      if (!betSetted) {
+        increaseBet();
+        refreshBetHUD();
+      }
+    });
+   
+
+    buttonLessBet.addEventListener("click", () => {
+      if (!betSetted) {
+        decreaseBet();
+        refreshBetHUD();
+      }
+    });
+   
+
+    buttonSetBet.addEventListener("click", () => {
+      if (!betSetted) {
+        betWrapper.classList.add("hidden");
+        betButtons.classList.add("hidden");
+        dealFirstCards();
+        betSetted = true;
+      }
+    });
+}
+  
 }
