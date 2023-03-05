@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="./components/merginFiles.js" defer></script>
-
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
+    <script src="./components/constants.js" defer></script>
+    <script src="./components/merginFiles.js" defer></script>
+    <script src="./components/CreateDeckDealCard.js" defer></script>
+    <script src="./components/cardValuesAcetoOne.js" defer></script>
+    <script src="./components/giveCardAndAnimate.js" defer></script>
+    <script src="./components/betAndPrize.js" defer></script>
   </head>
   <body>
     <div class="score hidden" id="dealer_score">
@@ -109,5 +113,10 @@
     <div class="score hidden" id="player_score">
       <p>Player score <span></span></p>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        gameStart();
+      });
+    </script>
   </body>
 </html>
