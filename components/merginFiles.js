@@ -232,16 +232,13 @@ function refreshBetHUD() {
   });
 }
 
-
-
-document.addEventListener("DOMContentLoaded", function () { 
-    
-     const bigEventMessageHolder = document.querySelector(
+document.addEventListener("DOMContentLoaded", function () {
+  const bigEventMessageHolder = document.querySelector(
     "#big_event_message_holder"
   );
   bigEventMessageHolder.classList.remove("hidden");
 
- function gameStart() {
+  function gameStart() {
     switch (true) {
       case bank <= 0:
         bankruptcy();
@@ -254,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
     }
   }
- 
+
   function setBet() {
     let betSetted = false;
     const betWrapper = document.querySelector("#bet_wrapper");
@@ -268,14 +265,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     refreshBetHUD();
 
-   
     buttonMoreBet.addEventListener("click", () => {
       if (!betSetted) {
         increaseBet();
         refreshBetHUD();
       }
     });
-   
 
     buttonLessBet.addEventListener("click", () => {
       if (!betSetted) {
@@ -283,7 +278,6 @@ document.addEventListener("DOMContentLoaded", function () {
         refreshBetHUD();
       }
     });
-   
 
     buttonSetBet.addEventListener("click", () => {
       if (!betSetted) {
@@ -293,9 +287,9 @@ document.addEventListener("DOMContentLoaded", function () {
         betSetted = true;
       }
     });
-}
-  
- function dealFirstCards() {
+  }
+
+  function dealFirstCards() {
     // Player is dealt two cards
     playerCards.push(randomCard(), randomCard());
     currentPlayerCards = 2;
@@ -341,27 +335,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-
   function showHUD() {
-  const selectors = [
-    "#stand",
-    "#hit",
-    "#player_score",
-    "#dealer_score",
-    "#bank",
-    "#bet",
-    "#double_down",
-  ];
-  selectors.forEach((selector) => {
-    document.querySelector(selector).classList.remove("hidden");
-  });
-  document.querySelector("#player_score span").textContent =
-    totalValue(playerCards);
-  document.querySelector("#dealer_score span").textContent =
-    dealerCards[0].value;
-}
+    const selectors = [
+      "#stand",
+      "#hit",
+      "#player_score",
+      "#dealer_score",
+      "#bank",
+      "#bet",
+      "#double_down",
+    ];
+    selectors.forEach((selector) => {
+      document.querySelector(selector).classList.remove("hidden");
+    });
+    document.querySelector("#player_score span").textContent =
+      totalValue(playerCards);
+    document.querySelector("#dealer_score span").textContent =
+      dealerCards[0].value;
+  }
 
-   function doubleDown() {
+  function doubleDown() {
     updateBet();
     refreshBetHUD();
     hideDoubleDownAndAceButtons();
@@ -369,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePlayerScore();
     checkForBustOrBlackjack();
   }
-  
+
   function updateBet() {
     if (bet * 2 <= bank) {
       bank -= bet;
@@ -381,19 +374,19 @@ document.addEventListener("DOMContentLoaded", function () {
       betMulti = bet;
     }
   }
-  
+
   function hideDoubleDownAndAceButtons() {
-  document.querySelector("#double_down").classList.add("hidden");
-  document.querySelector("#ace_becomes_one_player").classList.add("hidden");
-}
-  
-function addCardToPlayerHand() {
+    document.querySelector("#double_down").classList.add("hidden");
+    document.querySelector("#ace_becomes_one_player").classList.add("hidden");
+  }
+
+  function addCardToPlayerHand() {
     playerCards.push(randomCard());
     currentPlayerCards++;
     addCardtoPlayer(currentPlayerCards);
   }
-  
-   function updatePlayerScore() {
+
+  function updatePlayerScore() {
     if (totalValue(playerCards) > 21 && hasAnAce(playerCards)) {
       turnAceToOne(playerCards);
       document
@@ -403,7 +396,7 @@ function addCardToPlayerHand() {
     document.querySelector("#player_score span").textContent =
       totalValue(playerCards);
   }
- function checkForBustOrBlackjack() {
+  function checkForBustOrBlackjack() {
     if (totalValue(playerCards) > 21) {
       playerTurn = false;
       gameStarted = false;
@@ -418,7 +411,7 @@ function addCardToPlayerHand() {
       }, bigSignTimeout);
     }
   }
- function hit() {
+  function hit() {
     document.getElementById("double_down").classList.add("hidden");
     document.getElementById("ace_becomes_one_player").classList.add("hidden");
 
@@ -462,7 +455,7 @@ function addCardToPlayerHand() {
 
     dealersDecision();
   }
-   function dealersDecision() {
+  function dealersDecision() {
     if (totalValue(dealerCards) > 21 && hasAnAce(dealerCards))
       turnAceToOne(dealerCards);
 
@@ -478,8 +471,7 @@ function addCardToPlayerHand() {
     else if (totalValue(dealerCards) >= 17) decideWinner();
     else dealerTakeACard();
   }
-  
-  
+
   function dealerTakeACard() {
     updateDealerScore();
     setTimeout(() => {
@@ -495,7 +487,7 @@ function addCardToPlayerHand() {
     document.querySelector("#dealer_score span").textContent =
       totalValue(dealerCards);
   }
-  
+
   function decideWinner() {
     setTimeout(() => {
       switch (true) {
@@ -540,7 +532,6 @@ function addCardToPlayerHand() {
     messageHolder.classList.remove("hidden");
   }
 
-  
   function blackjackPush() {
     handleNoPrize();
     gameStarted = false;
@@ -555,7 +546,7 @@ function addCardToPlayerHand() {
 
     messageHolder.classList.remove("hidden");
   }
-  
+
   function dealerBust() {
     regularPrize();
     gameStarted = false;
@@ -602,4 +593,15 @@ function addCardToPlayerHand() {
       .querySelector("#big_event_message_holder")
       .classList.remove("hidden");
   }
-}
+  function bankruptcy() {
+    gameStarted = true;
+    document.querySelector("#big_event_message_holder h1").textContent =
+      "Bankruptcy";
+    document.querySelector("#big_event_message_holder h3").textContent =
+      "You Lost";
+    document.querySelector("#big_event_message_holder h2").textContent = ``;
+    document
+      .querySelector("#big_event_message_holder")
+      .classList.remove("hidden");
+  }
+});
