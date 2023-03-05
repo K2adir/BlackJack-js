@@ -180,17 +180,16 @@ function appendCardDealerAnimation() {
   });
 }
 
-function increaseBet() {
+function increaseBet(amount) {
   if (bank > 0) {
-    bet += 5;
-    bank -= 5;
+    bet += amount;
+    bank -= amount;
   }
 }
-
-function decreaseBet() {
-  if (bet > 5) {
-    bet -= 5;
-    bank += 5;
+function decreaseBet(amount) {
+  if (bet >= amount) {
+    bet -= amount;
+    bank += amount;
   }
 }
 
@@ -279,33 +278,40 @@ document.addEventListener("DOMContentLoaded", function () {
     let betSetted = false;
     const betWrapper = document.querySelector("#bet_wrapper");
     const betButtons = document.querySelector("#bet_buttons");
-    const buttonMoreBet = document.querySelector("#button_more_bet");
-    const buttonLessBet = document.querySelector("#button_less_bet");
+    //
+
+    const betIncreaseButtons = document.querySelectorAll(
+      "#button_more_bet, #button_more_bet10, #button_more_bet25, #button_more_bet50, #button_more_bet100"
+    );
+    const betDecreaseButtons = document.querySelectorAll(
+      "#button_less_bet, #button_less_bet10, #button_less_bet25, #button_less_bet50, #button_less_bet100"
+    );
+
+    //
     const buttonSetBet = document.querySelector("#button_set_bet");
 
-    // Show the bet wrapper and buttons
     betWrapper.classList.remove("hidden");
     betButtons.classList.remove("hidden");
 
-    // Refresh the bet HUD
     refreshBetHUD();
 
-    buttonMoreBet.addEventListener("click", () => {
-      if (!betSetted) {
-        increaseBet();
-        refreshBetHUD();
-      }
+    betIncreaseButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!betSetted) {
+          increaseBet(parseInt(button.dataset.amount));
+          refreshBetHUD();
+        }
+      });
+    });
+    betDecreaseButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!betSetted) {
+          decreaseBet(parseInt(button.dataset.amount));
+          refreshBetHUD();
+        }
+      });
     });
 
-    // Decrease bet when 'Less Bet' button is clicked or down arrow key is pressed
-    buttonLessBet.addEventListener("click", () => {
-      if (!betSetted) {
-        decreaseBet();
-        refreshBetHUD();
-      }
-    });
-
-    // Set the bet when 'Set Bet' button is clicked or enter key is pressed
     buttonSetBet.addEventListener("click", () => {
       if (!betSetted) {
         betWrapper.classList.add("hidden");
@@ -317,15 +323,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function dealFirstCards() {
-    // Player is dealt two cards
     playerCards.push(randomCard(), randomCard());
     currentPlayerCards = 2;
 
-    // Dealer is dealt two cards
     dealerCards.push(randomCard(), randomCard());
     currentComputerCards = 2;
 
-    // Show HUD
     showHUD();
 
     addCardtoPlayer(1);

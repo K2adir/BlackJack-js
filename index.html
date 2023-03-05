@@ -14,22 +14,44 @@
     <div class="score hidden" id="dealer_score">
       <p>Dealer score <span></span></p>
     </div>
-
-    <div id="openning_message_banner" class="hidden">
+    <div id="big_event_message_holder" class="hidden">
       <h1>
+        <img src="assets/clubs.svg" style="width: 0.7em" /><img
+          src="assets/diamonds.svg"
+          style="width: 0.7em"
+        />
+        Blackjack
         <img src="assets/hearts.svg" style="width: 0.7em" /><img
           src="assets/spades.svg"
           style="width: 0.7em"
         />
-        Blackjack
-        <img src="assets/diamonds.svg" style="width: 0.7em" /><img
-          src="assets/clubs.svg"
-          style="width: 0.7em"
-        />
       </h1>
+      <h3></h3>
+      <h2></h2>
     </div>
 
     <ul class="hand" id="dealer_hand"></ul>
+
+    <div id="bet_wrapper" class="hidden">
+      <div id="set_bank">
+        <h3>Bank: <span></span>$</h3>
+      </div>
+      <div id="set_bet">
+        <h3>Bet <span></span>$</h3>
+      </div>
+    </div>
+
+    <div class="score hidden" id="bet">
+      <p>Bet <span>25</span>$</p>
+    </div>
+
+    <div class="score hidden" id="bank">
+      <p>Bank <span>100</span>$</p>
+    </div>
+
+    <div id="ace_becomes_one_player" class="score hidden">Ace becomes 1</div>
+
+    <ul class="hand" id="player_hand"></ul>
 
     <ul class="button_list">
       <button id="stand" class="hidden">
@@ -42,18 +64,19 @@
     </ul>
 
     <ul class="button_list hidden" id="bet_buttons">
-      <button id="button_more_bet"><h3>-100</h3></button>
-      <button id="button_more_bet"><h3>-50</h3></button>
-      <button id="button_more_bet"><h3>-25</h3></button>
-      <button id="button_more_bet"><h3>-10</h3></button>
-      <button id="button_more_bet"><h3>-5</h3></button>
-      <button id="button_set_bet"><h3>Set Bet</h3></button>
+      <button id="button_less_bet"><h3>-</h3></button>
+      <button id="button_less_bet" data-amount="5">-5</button>
+      <button id="button_less_bet10" data-amount="10">-10</button>
+      <button id="button_less_bet25" data-amount="25">-25</button>
+      <button id="button_less_bet50" data-amount="50">-50</button>
+      <button id="button_less_bet100" data-amount="100">-100</button>
 
-      <button id="button_more_bet"><h3>+5</h3></button>
-      <button id="button_more_bet"><h3>+10</h3></button>
-      <button id="button_more_bet"><h3>+25</h3></button>
-      <button id="button_more_bet"><h3>+50</h3></button>
-      <button id="button_more_bet"><h3>+100</h3></button>
+      <button id="button_set_bet"><h3>Set Bet</h3></button>
+      <button id="button_more_bet" data-amount="5">5</button>
+      <button id="button_more_bet10" data-amount="10">+10</button>
+      <button id="button_more_bet25" data-amount="25">+25</button>
+      <button id="button_more_bet50" data-amount="50">+50</button>
+      <button id="button_more_bet100" data-amount="100">+100</button>
     </ul>
 
     <div class="score hidden" id="player_score">
