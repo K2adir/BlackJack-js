@@ -387,4 +387,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#ace_becomes_one_player").classList.add("hidden");
 }
   
+function addCardToPlayerHand() {
+    playerCards.push(randomCard());
+    currentPlayerCards++;
+    addCardtoPlayer(currentPlayerCards);
+  }
+
 }
