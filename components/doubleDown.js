@@ -192,22 +192,6 @@ function addCardtoPlayer(cardNumber) {
 
 // use updateUI to display other messages as well, when the project is completed.
 
-function checkForBustOrBlackjack() {
-  if (totalValue(playerCards) > 21) {
-    playerTurn = false;
-    gameStarted = false;
-    setTimeout(function () {
-      playerBust();
-    }, bigSignTimeout);
-  } else if (totalValue(playerCards) == 21) {
-    blackjackCheck();
-  } else {
-    setTimeout(function () {
-      stand();
-    }, bigSignTimeout);
-  }
-}
-
 function hit() {
   // Hide double down and ace becomes one buttons
   document.getElementById("double_down").classList.add("hidden");
