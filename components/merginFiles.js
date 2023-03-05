@@ -1,7 +1,6 @@
 let playerCards = [];
 let dealerCards = [];
 let deck = [];
-
 let currentPlayerCards = 0;
 let currentComputerCards = 0;
 
@@ -20,8 +19,6 @@ let cardTimeout = 600;
 let bigSignTimeout = 600;
 let cardDealingTimeout = 150;
 
-document.addEventListener("contextmenu", (e) => e.preventDefault);
-
 const debounce = (fn, delay) => {
   let timer = null;
   return (...args) => {
@@ -32,12 +29,15 @@ const debounce = (fn, delay) => {
 
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-//// card Class
 class Card {
   constructor(number, suit, value) {
     this._number = number;
     this._suit = suit;
     this._value = value;
+  }
+
+  get number() {
+    return this._number;
   }
 
   get suit() {
@@ -46,10 +46,6 @@ class Card {
 
   get value() {
     return this._value;
-  }
-
-  get number() {
-    return this._number;
   }
 }
 
@@ -72,7 +68,6 @@ function createDeck() {
   createSuit("clubs");
 }
 
-// create random card improved
 function randomCard() {
   const selectedCardIndex = Math.floor(Math.random() * deck.length);
   const dealtCard = deck.splice(selectedCardIndex, 1)[0];
@@ -83,7 +78,6 @@ function totalValue(player) {
   return player.reduce((total, card) => total + card.value, 0);
 }
 
-// .some used instead of for i
 function hasAnAce(playerCards) {
   return playerCards.some((card) => card._value === 11);
 }
@@ -97,17 +91,48 @@ function turnAceToOne(deckWithAce) {
   deckWithAce[indexOfAce]._value = 1;
 }
 
+function describeDealtCard(dealtCard) {
+  return dealtCard.number + " of " + dealtCard.suit;
+}
+
+function tellCurrentValue(playerCards) {
+  return "The cards add to " + totalValue(playerCards) + ".";
+}
+
+function currentHand(player) {
+  let currentHand = "";
+  for (let i = 0; i < player.length; i++) {
+    currentHand += describeDealtCard(player[i]);
+    if (i == player.length - 2) {
+      currentHand += " and ";
+    } else if (i != player.length - 1) {
+      currentHand += ", ";
+    } else {
+      currentHand += ".";
+    }
+  }
+  return "Current hand is: " + currentHand;
+}
+
+function cardDom(player, card) {
+  let cardNumber = player[card - 1].number;
+  let cardSuit = player[card - 1].suit;
+
+  let output = cardNumber;
+  return output;
+}
+
 function suitToStrImg(player, card) {
   let cardSuit = player[card - 1].suit;
   switch (cardSuit) {
     case "hearts":
-      return '<img src="./assets/hearts.svg">';
+      return '<img src="../assets/hearts.svg">';
     case "diamonds":
-      return '<img src="./assets/cardBack.svg">';
+      return '<img src="../assets/diamonds.svg">';
     case "clubs":
-      return '<img src="./assets/clubs.svg">';
+      return '<img src="../assets/clubs.svg">';
     case "spades":
-      return '<img src="./assets/spades.svg" >';
+      return '<img src="../assets/spades.svg" >';
     default:
       return "";
   }
@@ -155,7 +180,6 @@ function appendCardDealerAnimation() {
   });
 }
 
-//// BETTING ////////////////
 function increaseBet() {
   if (bank > 0) {
     bet += 5;
@@ -192,13 +216,12 @@ function losePrize() {
   betMulti = bet;
   bet = 0;
 }
-////////////////////
 
 function cleanUpForNewGame() {
   const playerScore = document.querySelector("#player_score span");
   const dealerScore = document.querySelector("#dealer_score span");
   const cards = document.querySelectorAll(".card");
-
+  //   const tip = document.querySelector("#tip");
   const bigEventMessageHolder = document.querySelector(
     "#big_event_message_holder"
   );
@@ -260,9 +283,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const buttonLessBet = document.querySelector("#button_less_bet");
     const buttonSetBet = document.querySelector("#button_set_bet");
 
+    // Show the bet wrapper and buttons
     betWrapper.classList.remove("hidden");
     betButtons.classList.remove("hidden");
 
+    // Refresh the bet HUD
     refreshBetHUD();
 
     buttonMoreBet.addEventListener("click", () => {
@@ -272,6 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Decrease bet when 'Less Bet' button is clicked or down arrow key is pressed
     buttonLessBet.addEventListener("click", () => {
       if (!betSetted) {
         decreaseBet();
@@ -279,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Set the bet when 'Set Bet' button is clicked or enter key is pressed
     buttonSetBet.addEventListener("click", () => {
       if (!betSetted) {
         betWrapper.classList.add("hidden");
@@ -396,6 +423,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#player_score span").textContent =
       totalValue(playerCards);
   }
+
   function checkForBustOrBlackjack() {
     if (totalValue(playerCards) > 21) {
       playerTurn = false;
@@ -411,7 +439,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }, bigSignTimeout);
     }
   }
+
   function hit() {
+    // Hide double down and ace becomes one buttons
     document.getElementById("double_down").classList.add("hidden");
     document.getElementById("ace_becomes_one_player").classList.add("hidden");
 
@@ -427,9 +457,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .classList.remove("hidden");
     }
 
+    // Update player score display
     document.querySelector("#player_score span").textContent =
       totalValue(playerCards);
 
+    // Check if player busts (total value over 21)
     if (totalValue(playerCards) > 21) {
       playerTurn = false;
       gameStarted = false;
@@ -440,21 +472,28 @@ document.addEventListener("DOMContentLoaded", function () {
       playerTurn = true;
     }
   }
+
   function stand() {
+    // Hide ace player
     document.getElementById("ace_becomes_one_player").classList.add("hidden");
 
+    // Remove flipped cards
     const cardsToBeRemoved = document.querySelectorAll(".flipped");
     cardsToBeRemoved.forEach(function (card) {
       card.remove();
     });
 
+    // Add card to dealer
     addCardtoDealer(currentComputerCards);
 
+    // Update dealer score
     document.querySelector("#dealer_score span").textContent =
       totalValue(dealerCards);
 
+    // Make dealer's decision
     dealersDecision();
   }
+
   function dealersDecision() {
     if (totalValue(dealerCards) > 21 && hasAnAce(dealerCards))
       turnAceToOne(dealerCards);
@@ -517,6 +556,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateUI(selector, text) {
     document.querySelector(selector).textContent = text;
   }
+
   function blackjack() {
     blackjackPrize();
     gameStarted = false;
@@ -547,6 +587,17 @@ document.addEventListener("DOMContentLoaded", function () {
     messageHolder.classList.remove("hidden");
   }
 
+  function playerBust() {
+    losePrize();
+    gameStarted = false;
+
+    const messageHolder = document.querySelector("#big_event_message_holder");
+    updateUI("#big_event_message_holder h1", "Bust! You Lose!");
+    updateUI("#big_event_message_holder h3", "Your cards are over 21");
+    updateUI("#big_event_message_holder h2", `You lose ${betMulti}$`);
+    messageHolder.classList.remove("hidden");
+  }
+
   function dealerBust() {
     regularPrize();
     gameStarted = false;
@@ -560,6 +611,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     messageHolder.classList.remove("hidden");
   }
+
+  function push() {
+    noPrize();
+
+    gameStarted = false;
+    document.querySelector("#big_event_message_holder h1").textContent =
+      "Push!";
+    document.querySelector("#big_event_message_holder h3").textContent =
+      "Player and dealer have the same score";
+    document.querySelector(
+      "#big_event_message_holder h2"
+    ).textContent = `Your recover your ${betMulti}$`;
+    document
+      .querySelector("#big_event_message_holder")
+      .classList.remove("hidden");
+  }
+
   function youWin() {
     regularPrize();
 
@@ -593,6 +661,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .querySelector("#big_event_message_holder")
       .classList.remove("hidden");
   }
+
   function bankruptcy() {
     gameStarted = true;
     document.querySelector("#big_event_message_holder h1").textContent =
@@ -604,4 +673,34 @@ document.addEventListener("DOMContentLoaded", function () {
       .querySelector("#big_event_message_holder")
       .classList.remove("hidden");
   }
+
+  document
+    .querySelector("#big_event_message_holder")
+    .addEventListener("click", function (e) {
+      if (!gameStarted) {
+        gameStart();
+      }
+    });
+
+  document.querySelector("#hit").addEventListener("click", function () {
+    if (playerTurn === true && gameStarted) {
+      playerTurn = false;
+      hit();
+    }
+  });
+
+  document.querySelector("#double_down").addEventListener("click", function () {
+    if (playerTurn === true && gameStarted && phase === "doubleDown") {
+      playerTurn = false;
+      doubleDown();
+      phase = "";
+    }
+  });
+
+  document.querySelector("#stand").addEventListener("click", function () {
+    if (playerTurn === true && gameStarted) {
+      playerTurn = false;
+      stand();
+    }
+  });
 });
