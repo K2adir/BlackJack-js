@@ -462,4 +462,38 @@ function addCardToPlayerHand() {
 
     dealersDecision();
   }
+   function dealersDecision() {
+    if (totalValue(dealerCards) > 21 && hasAnAce(dealerCards))
+      turnAceToOne(dealerCards);
+
+    // Update dealer score
+    document.querySelector("#dealer_score span").textContent =
+      totalValue(dealerCards);
+
+    if (totalValue(dealerCards) > 21)
+      setTimeout(function () {
+        dealerBust();
+      }, bigSignTimeout);
+    else if (totalValue(dealerCards) == 21) decideWinner();
+    else if (totalValue(dealerCards) >= 17) decideWinner();
+    else dealerTakeACard();
+  }
+  
+  
+  function dealerTakeACard() {
+    updateDealerScore();
+    setTimeout(() => {
+      dealerCards.push(randomCard());
+      currentComputerCards++;
+      addCardtoDealer(currentComputerCards);
+      updateDealerScore();
+      dealersDecision();
+    }, cardTimeout);
+  }
+
+  function updateDealerScore() {
+    document.querySelector("#dealer_score span").textContent =
+      totalValue(dealerCards);
+  }
+  
 }
