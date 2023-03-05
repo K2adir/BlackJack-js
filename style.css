@@ -1,12 +1,9 @@
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
 
-  /* stop text highlight */
-  -moz-user-select: none;
-  user-select: none;
   -webkit-user-select: none;
+
+  user-select: none;
 }
 
 body {
@@ -32,32 +29,49 @@ body {
     hsl(120deg 100% 5%) 98%,
     hsl(0deg 0% 0%) 100%
   );
-
   background-repeat: no-repeat;
   height: 100%;
+  margin: 0;
   background-attachment: fixed;
+  font-family: "garamond", Times, serif;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1em;
 }
 
 ul {
   list-style: none;
 }
 
-.card img {
-  width: 2em;
+.card {
+  background: linear-gradient(to bottom right, #f4f4f4, #efefef);
+  width: 14em;
+  height: 20.4em;
+  padding-left: 1em;
+  padding-top: 01em;
+  margin: 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.4em;
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
 }
 
-#dealer_hand {
-  position: fixed;
-  left: 40%;
-  top: 3%;
-}
-
 .card img {
-  width: 2em;
+  width: 3em;
 }
 
 .card h3 {
@@ -67,35 +81,103 @@ ul {
   margin: 0em;
 }
 
+.undealed_player {
+  opacity: 0;
+  bottom: 40em;
+}
+
+.undealed_dealer {
+  opacity: 0;
+  bottom: 10em;
+}
+
+.hidden {
+  display: none;
+}
+
 .flipped {
   background-image: url(assets/card_back.svg);
   background-size: cover;
   z-index: 10;
+  position: absolute;
+  top: 2em;
+  left: 9em;
 }
 
 .button_list button {
-  border-radius: 50px;
-  width: 5em;
-  height: 5em;
+  outline: none;
+}
+
+.decrease_bet {
+  background: linear-gradient(to bottom right, #d84242, #a71f1e);
+  border-radius: 10em;
+  width: 12em;
+  height: 12em;
+
+  border-color: #f4f4f4;
 
   outline: none;
+  color: #f4f4f4;
+
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.button_list button:disabled {
+  color: black;
+}
+
+.button_list button h3 {
+  color: #f4f4f4;
+  font-size: 3em;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
 #player_hand {
   position: fixed;
-  bottom: 6%;
+  bottom: 3%;
   left: 25%;
 }
 
 #player_hand li,
 #dealer_hand li {
-  margin: 0 -2em;
+  margin: 0 -4em;
 }
 
 #dealer_hand {
   position: fixed;
-  left: 50%;
-  top: 4%;
+  left: 40%;
+  top: 3%;
+}
+
+#big_event_message_holder,
+#bet_wrapper {
+  background-color: rgba(5, 36, 19, 0.9);
+  color: #f4f4f4;
+  text-align: center;
+  font-size: 130%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 999;
+  font-family: Garamond, Times, "Times New Roman", serif;
+}
+
+#big_event_message_holder h3 {
+  font-weight: 100;
+}
+
+#hit,
+#button_more_bet {
+  position: fixed;
+  right: 3em;
+  bottom: 3em;
+}
+
+#button_set_bet {
+  position: fixed;
+  bottom: 3em;
+  left: 43.5%;
 }
 
 #double_down {
@@ -111,4 +193,656 @@ ul {
   position: fixed;
   left: 3em;
   bottom: 3em;
+}
+
+.score,
+#ace_becomes_one_player {
+  background-color: rgba(5, 36, 19, 0.7);
+  border-radius: 1em;
+  width: 12em;
+  border-style: solid;
+  border-color: #f4f4f4;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.score p,
+#ace_becomes_one_player {
+  color: #f4f4f4;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.3em;
+  margin: 0.3em 0;
+}
+
+#dealer_score {
+  position: fixed;
+  top: 1%;
+  left: 23%;
+  z-index: 999;
+}
+
+#player_score {
+  position: fixed;
+  bottom: 1%;
+  left: 50%;
+  z-index: 999;
+}
+
+#ace_becomes_one_player {
+  position: fixed;
+  bottom: 0.3%;
+  right: 51%;
+  z-index: 999;
+  width: 21em;
+  padding: 0.35em;
+}
+
+#bank {
+  position: fixed;
+  bottom: 87%;
+  right: 1%;
+  z-index: 999;
+}
+
+#bet {
+  position: fixed;
+  top: 1%;
+  right: 1%;
+  z-index: 999;
+}
+
+/* poker chips */
+.chips {
+  margin: 0 50px;
+  padding: 20px 0;
+  text-align: center;
+  background-color: #014d43;
+  box-shadow: 0 0 0 5px #282828 inset, 0 0 0 10px #969696 inset,
+    0 0 6px rgba(255, 255, 255, 0.2);
+}
+.pokerchip {
+  margin: 1em;
+  position: relative;
+  display: inline-block;
+  width: 151px;
+  height: 151px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 0 3px 0 rgba(0, 0, 0, 0.4) inset;
+  border-radius: 50%;
+  background-size: 151px 151px;
+  background-position: center center;
+}
+.pokerchip:before {
+  position: absolute;
+  content: "";
+  z-index: 1;
+  width: 117px;
+  height: 117px;
+  border-radius: 50%;
+  top: 9px;
+  left: 9px;
+  background-size: 151px 151px;
+  background-position: center center;
+}
+.pokerchip:after {
+  z-index: 2;
+  position: absolute;
+  content: "25";
+  text-align: center;
+  font: bold 50px/111px Arial;
+  white-space: pre;
+  width: 111px;
+  height: 111px;
+  border-radius: 50%;
+  top: 20px;
+  left: 20px;
+  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.3),
+    1px 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+/* Colors */
+.white {
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 67.5px,
+      #fff 67.5px,
+      #fff 83.5px,
+      transparent 83.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      transparent 113.4304px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      #dddddd 0,
+      #dddddd 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      #dddddd 113.4304px,
+      #dddddd 151px
+    );
+}
+.white:before {
+  border: 8px solid #dddddd;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      30deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      150deg,
+      #c1c1c1 0,
+      #c1c1c1 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      #c1c1c1 110.7104px,
+      #c1c1c1 151px
+    );
+}
+.white:after {
+  content: "1";
+  background: #dddddd;
+  color: #c1c1c1;
+}
+.red {
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 67.5px,
+      #fff 67.5px,
+      #fff 83.5px,
+      transparent 83.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      transparent 113.4304px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      #800000 0,
+      #800000 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      #800000 113.4304px,
+      #800000 151px
+    );
+}
+.red:before {
+  border: 8px solid #800000;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      30deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      150deg,
+      #6c0000 0,
+      #6c0000 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      #6c0000 110.7104px,
+      #6c0000 151px
+    );
+}
+.red:after {
+  content: "5";
+  background: #800000;
+  color: #6c0000;
+}
+.blue {
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 67.5px,
+      #fff 67.5px,
+      #fff 83.5px,
+      transparent 83.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      transparent 113.4304px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      #000099 0,
+      #000099 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      #000099 113.4304px,
+      #000099 151px
+    );
+}
+.blue:before {
+  border: 8px solid #000099;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      30deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      150deg,
+      #00016c 0,
+      #00016c 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      #00016c 110.7104px,
+      #00016c 151px
+    );
+}
+.blue:after {
+  content: "10";
+  background: #000099;
+  color: #00016c;
+}
+.green {
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 67.5px,
+      #fff 67.5px,
+      #fff 83.5px,
+      transparent 83.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      transparent 113.4304px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      #008000 0,
+      #008000 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      #008000 113.4304px,
+      #008000 151px
+    );
+}
+.green:before {
+  border: 8px solid #008000;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      30deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      150deg,
+      #016c00 0,
+      #016c00 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      #016c00 110.7104px,
+      #016c00 151px
+    );
+}
+.green:after {
+  content: "25";
+  background: #008000;
+  color: #016c00;
+}
+.black {
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 67.5px,
+      #fff 67.5px,
+      #fff 83.5px,
+      transparent 83.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      transparent 113.4304px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      #222222 0,
+      #222222 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      #222222 113.4304px,
+      #222222 151px
+    );
+}
+.black:before {
+  border: 8px solid #222222;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      30deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      150deg,
+      #000000 0,
+      #000000 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      #000000 110.7104px,
+      #000000 151px
+    );
+}
+.black:after {
+  content: "50";
+  background: #222222;
+  color: #000000;
+}
+.purple {
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 67.5px,
+      #fff 67.5px,
+      #fff 83.5px,
+      transparent 83.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      transparent 113.4304px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      #8c03e1 0,
+      #a10097 97.4304px,
+      #fff 97.4304px,
+      #fff 113.4304px,
+      #5d0063 113.4304px,
+      #460052 151px
+    );
+}
+.purple:before {
+  border: 8px solid #a1008c;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      30deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 69.5px,
+      #ebebeb 69.5px,
+      #ebebeb 81.5px,
+      transparent 81.5px,
+      transparent 151px
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      transparent 110.7104px,
+      transparent 151px
+    ),
+    linear-gradient(
+      150deg,
+      #000000 0,
+      #000000 98.7104px,
+      #ebebeb 98.7104px,
+      #ebebeb 110.7104px,
+      #000000 110.7104px,
+      #000000 151px
+    );
+}
+.purple:after {
+  content: "100";
+  background: #8e0087;
+  color: #000000;
 }

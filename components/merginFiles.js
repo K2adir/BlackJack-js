@@ -181,7 +181,7 @@ function appendCardDealerAnimation() {
 }
 
 function increaseBet(amount) {
-  if (bank > 0) {
+  if (bank > 0 && amount <= bank) {
     bet += amount;
     bank -= amount;
   }
@@ -460,11 +460,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .classList.remove("hidden");
     }
 
-    // Update player score display
     document.querySelector("#player_score span").textContent =
       totalValue(playerCards);
 
-    // Check if player busts (total value over 21)
     if (totalValue(playerCards) > 21) {
       playerTurn = false;
       gameStarted = false;
@@ -477,23 +475,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function stand() {
-    // Hide ace player
     document.getElementById("ace_becomes_one_player").classList.add("hidden");
 
-    // Remove flipped cards
     const cardsToBeRemoved = document.querySelectorAll(".flipped");
     cardsToBeRemoved.forEach(function (card) {
       card.remove();
     });
 
-    // Add card to dealer
     addCardtoDealer(currentComputerCards);
 
-    // Update dealer score
     document.querySelector("#dealer_score span").textContent =
       totalValue(dealerCards);
 
-    // Make dealer's decision
     dealersDecision();
   }
 
@@ -501,17 +494,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (totalValue(dealerCards) > 21 && hasAnAce(dealerCards))
       turnAceToOne(dealerCards);
 
-    // Update dealer score
     document.querySelector("#dealer_score span").textContent =
       totalValue(dealerCards);
 
-    if (totalValue(dealerCards) > 21)
-      setTimeout(function () {
-        dealerBust();
-      }, bigSignTimeout);
-    else if (totalValue(dealerCards) == 21) decideWinner();
-    else if (totalValue(dealerCards) >= 17) decideWinner();
-    else dealerTakeACard();
+    switch (true) {
+      case totalValue(dealerCards) > 21:
+        setTimeout(function () {
+          dealerBust();
+        }, bigSignTimeout);
+        break;
+      case totalValue(dealerCards) == 21:
+      case totalValue(dealerCards) >= 17:
+        decideWinner();
+        break;
+      default:
+        dealerTakeACard();
+        break;
+    }
   }
 
   function dealerTakeACard() {

@@ -54,29 +54,56 @@
     <ul class="hand" id="player_hand"></ul>
 
     <ul class="button_list">
-      <button id="stand" class="hidden">
+      <button id="stand" class="hidden decrease_bet">
         <h3>Stand</h3>
       </button>
-      <button id="hit" class="hidden">
+      <button id="hit" class="hidden decrease_bet">
         <h3>Hit</h3>
       </button>
-      <button id="double_down" class="hidden"><h3>Double Down</h3></button>
+      <button id="double_down" class="hidden decrease_bet">
+        <h3>Double Down</h3>
+      </button>
     </ul>
 
     <ul class="button_list hidden" id="bet_buttons">
-      <button id="button_less_bet"><h3>-</h3></button>
-      <button id="button_less_bet" data-amount="5">-5</button>
-      <button id="button_less_bet10" data-amount="10">-10</button>
-      <button id="button_less_bet25" data-amount="25">-25</button>
-      <button id="button_less_bet50" data-amount="50">-50</button>
-      <button id="button_less_bet100" data-amount="100">-100</button>
+      <button class="decrease_bet" id="button_less_bet100" data-amount="100">
+        <h3>-100</h3>
+      </button>
+      <button class="decrease_bet" id="button_less_bet50" data-amount="50">
+        <h3>-50</h3>
+      </button>
+      <button class="decrease_bet" id="button_less_bet25" data-amount="25">
+        <h3>-25</h3>
+      </button>
 
-      <button id="button_set_bet"><h3>Set Bet</h3></button>
-      <button id="button_more_bet" data-amount="5">5</button>
-      <button id="button_more_bet10" data-amount="10">+10</button>
-      <button id="button_more_bet25" data-amount="25">+25</button>
-      <button id="button_more_bet50" data-amount="50">+50</button>
-      <button id="button_more_bet100" data-amount="100">+100</button>
+      <button class="decrease_bet" id="button_less_bet10" data-amount="10">
+        <h3>-10</h3>
+      </button>
+      <button class="decrease_bet" id="button_less_bet" data-amount="5">
+        <h3>-5</h3>
+      </button>
+      <button class="decrease_bet" id="button_set_bet">
+        <h3>Set Bet</h3>
+      </button>
+      <button class="pokerchip red" id="button_more_bet" data-amount="5">
+        5
+      </button>
+      <button class="pokerchip blue" id="button_more_bet10" data-amount="10">
+        +10
+      </button>
+      <button class="pokerchip green" id="button_more_bet25" data-amount="25">
+        +25
+      </button>
+      <button class="pokerchip black" id="button_more_bet50" data-amount="50">
+        +50
+      </button>
+      <button
+        class="pokerchip purple"
+        id="button_more_bet100"
+        data-amount="100"
+      >
+        +100
+      </button>
     </ul>
 
     <div class="score hidden" id="player_score">
