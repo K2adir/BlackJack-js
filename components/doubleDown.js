@@ -1,24 +1,4 @@
-// CONSTANTS ===============
-
-let playerCards = [];
-
-let dealerCards = [];
-let deck = [];
-//
-let currentPlayerCards = 0;
-let currentComputerCards = 0;
-
-let bank = 100;
-let bet = 0;
-let betMulti = 0;
-
-const winMulti = 2;
-const blackJackMulti = 3;
-
-document.addEventListener("contextmenu", (e) => e.preventDefault);
-
 /////////==============/////
-
 // ====== DECK CLASS //////////
 
 class Card {
@@ -211,15 +191,6 @@ function addCardtoPlayer(cardNumber) {
 }
 
 // use updateUI to display other messages as well, when the project is completed.
-
-function doubleDown() {
-  updateBet();
-  refreshBetHUD();
-  hideDoubleDownAndAceButtons();
-  addCardToPlayerHand();
-  updatePlayerScore();
-  checkForBustOrBlackjack();
-}
 
 function updateBet() {
   if (bet * 2 <= bank) {

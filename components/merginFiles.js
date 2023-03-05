@@ -361,6 +361,13 @@ document.addEventListener("DOMContentLoaded", function () {
     dealerCards[0].value;
 }
 
-  
+   function doubleDown() {
+    updateBet();
+    refreshBetHUD();
+    hideDoubleDownAndAceButtons();
+    addCardToPlayerHand();
+    updatePlayerScore();
+    checkForBustOrBlackjack();
+  }
   
 }
