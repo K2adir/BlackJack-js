@@ -451,7 +451,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
       location.reload();
-    }, 2000);
+    }, 1500);
   };
 
   document
