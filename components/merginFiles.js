@@ -4,7 +4,6 @@ function cleanUpForNewGame() {
   const playerScore = document.querySelector("#player_score span");
   const dealerScore = document.querySelector("#dealer_score span");
   const cards = document.querySelectorAll(".card");
-  //   const tip = document.querySelector("#tip");
   const bigEventMessageHolder = document.querySelector(
     "#big_event_message_holder"
   );
@@ -442,15 +441,18 @@ document.addEventListener("DOMContentLoaded", function () {
       .classList.remove("hidden");
   }
 
-  function bankruptcy() {
+  const bankruptcy = () => {
     gameStarted = true;
     updateUI("#big_event_message_holder h1", "Bankruptcy");
     updateUI("#big_event_message_holder h3", "You Lost");
-    updateUI("#big_event_message_holder h2", "");
-    document
-      .querySelector("#big_event_message_holder")
-      .classList.remove("hidden");
-  }
+    updateUI("#big_event_message_holder h2", "Game will restart");
+    const messageHolder = document.querySelector("#big_event_message_holder");
+    messageHolder.classList.remove("hidden");
+
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+  };
 
   document
     .querySelector("#big_event_message_holder")

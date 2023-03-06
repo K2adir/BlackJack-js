@@ -106,11 +106,12 @@ ul {
 
 .button_list button {
   outline: none;
+  cursor: pointer;
 }
 
 .decrease_bet {
   background: linear-gradient(to bottom right, #d84242, #a71f1e);
-  border-radius: 10em;
+  border-radius: 2em;
   width: 12em;
   height: 12em;
 
@@ -169,6 +170,12 @@ ul {
 
 #hit,
 #button_more_bet {
+  /* position: fixed;
+  right: 3em;
+  bottom: 3em; */
+}
+
+#hit {
   position: fixed;
   right: 3em;
   bottom: 3em;
@@ -190,6 +197,12 @@ ul {
 
 #stand,
 #button_less_bet {
+  /* position: fixed;
+  left: 3em;
+  bottom: 3em; */
+}
+
+#stand {
   position: fixed;
   left: 3em;
   bottom: 3em;
