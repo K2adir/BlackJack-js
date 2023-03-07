@@ -280,7 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let betSetted = false;
     const betWrapper = document.querySelector("#bet_wrapper");
     const betButtons = document.querySelector("#bet_buttons");
-    //
 
     const betIncreaseButtons = document.querySelectorAll(
       "#button_more_bet, #button_more_bet10, #button_more_bet25, #button_more_bet50, #button_more_bet100"
