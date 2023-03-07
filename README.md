@@ -42,7 +42,9 @@ This project incorporates code snippets and logic from various sources. Approxim
 4. https://www.youtube.com/watch?v=Bj6lC93JMi0
 5. https://www.youtube.com/watch?v=NxRwIZWjLtE
 6. https://www.youtube.com/watch?v=bMYCWccL-3U&t=1845s
-7. https://codepen.io/pmk/pen/GgrJRq (Poker chips)
+7. https://github.com/jarodburchill/blackjack-react-app
+8. https://github.com/chirag-23/Black-Jack-Game
+9. https://codepen.io/pmk/pen/GgrJRq (Poker chips)
 
 and numerious Google searches and indie blogs.
 
