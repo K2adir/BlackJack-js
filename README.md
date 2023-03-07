@@ -22,11 +22,11 @@ To play the game, simply open the index.html file in a web browser. The game wil
 
 # Features
 
-* 100% Vanilla JavaScript, no libraries.
-* Follows functional programming principles.
-* Game cards are generated with Javascript Class and CSS.
-* Displays Player's and Dealer's current card value
-* After each round, UI displayes the outcome 
+* Uses 100% Vanilla JavaScript, without any libraries.
+ *   Follows functional programming principles.
+  *  Generates game cards with a JavaScript Class and CSS.
+  *  Displays the current card values of the player and the dealer.
+  *  After each round, the UI displays the outcome.
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
