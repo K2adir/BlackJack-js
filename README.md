@@ -9,15 +9,15 @@ To play the game, simply open the index.html file in a web browser. The game wil
 
 # Gameplay
 
-1. Click on the banner when the game is launched. 
-2. Set the bet amount. You can bet 0.
-3. The player and dealer will be dealt two cards each.
-4. The player can choose to hit or stand by clicking the corresponding button.
-5. If the player chooses to hit, they will be dealt another card.
-6. If the player chooses to stand, the dealer will start hitting until their hand reaches 17 points or higher.
-7. If the dealer's hand exceeds 21 points, the player wins the game.
-8. If the dealer's hand is higher than the player's hand without exceeding 21 points, the player loses the game.
-9. If the player and dealer have the same score, the game is a "push" and the player's bet is returned.
+ 1.   Click on the banner when the game launches.
+  2.  Set the bet amount. You can bet 0.
+   3. Deal two cards to both the player and the dealer.
+   4. The player can choose to hit or stand by clicking the corresponding button.
+   5. If the player chooses to hit, they will receive another card.
+   6. If the player chooses to stand, the dealer will start hitting until their hand reaches 17 points or higher.
+   7. If the dealer's hand exceeds 21 points, the player wins the game.
+  8.  If the dealer's hand is higher than the player's hand without exceeding 21 points, the player loses the game.
+  9.  If the player and dealer have the same score, the game is a "push" and the player's bet is returned.
 
 
 # Features
