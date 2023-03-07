@@ -34,7 +34,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 # Acknowledgments
 
-This project incorporates code snippets and logic from various sources. Approximately 90% of the logic has been rewritten or converted from other languages/frameworks to vanilla JavaScript. Some functions have been rewritten by combining logic from multiple sources, while others have been taken from the source and improved for consistency and readability.
+This project incorporates code snippets and logic from various sources. All of the logic has been rewritten or converted from other languages/frameworks to vanilla JavaScript. Some functions have been rewritten by combining logic from multiple sources, while others have been taken from the source and improved for consistency and readability.
 
 1. https://scrimba.com/playlist/p3py7U7
 2. https://github.com/jacquelynmarcella/blackjack
