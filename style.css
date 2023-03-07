@@ -861,3 +861,15 @@ ul {
   background: #8e0087;
   color: #000000;
 }
+
+.decrease_bet_group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokerchip_group {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}

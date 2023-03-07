@@ -70,43 +70,46 @@
     </ul>
 
     <ul class="button_list hidden" id="bet_buttons">
-      <button class="decrease_bet" id="button_less_bet100" data-amount="100">
-        <h3>-100</h3>
-      </button>
-      <button class="decrease_bet" id="button_less_bet50" data-amount="50">
-        <h3>-50</h3>
-      </button>
-      <button class="decrease_bet" id="button_less_bet25" data-amount="25">
-        <h3>-25</h3>
-      </button>
-
-      <button class="decrease_bet" id="button_less_bet10" data-amount="10">
-        <h3>-10</h3>
-      </button>
-      <button class="decrease_bet" id="button_less_bet" data-amount="5">
-        <h3>-5</h3>
-      </button>
-      <button class="decrease_bet" id="button_set_bet">
+      <div class="decrease_bet_group">
+        <button class="decrease_bet" id="button_less_bet100" data-amount="100">
+          <h3>-100</h3>
+        </button>
+        <button class="decrease_bet" id="button_less_bet50" data-amount="50">
+          <h3>-50</h3>
+        </button>
+        <button class="decrease_bet" id="button_less_bet25" data-amount="25">
+          <h3>-25</h3>
+        </button>
+        <button class="decrease_bet" id="button_less_bet10" data-amount="10">
+          <h3>-10</h3>
+        </button>
+        <button class="decrease_bet" id="button_less_bet" data-amount="5">
+          <h3>-5</h3>
+        </button>
+      </div>
+      <div class="pokerchip_group">
+        <button class="pokerchip red" id="button_more_bet" data-amount="5">
+          5
+        </button>
+        <button class="pokerchip blue" id="button_more_bet10" data-amount="10">
+          +10
+        </button>
+        <button class="pokerchip green" id="button_more_bet25" data-amount="25">
+          +25
+        </button>
+        <button class="pokerchip black" id="button_more_bet50" data-amount="50">
+          +50
+        </button>
+        <button
+          class="pokerchip purple"
+          id="button_more_bet100"
+          data-amount="100"
+        >
+          +100
+        </button>
+      </div>
+      <button class="decrease_bet set_bet" id="button_set_bet">
         <h3>Set Bet</h3>
-      </button>
-      <button class="pokerchip red" id="button_more_bet" data-amount="5">
-        5
-      </button>
-      <button class="pokerchip blue" id="button_more_bet10" data-amount="10">
-        +10
-      </button>
-      <button class="pokerchip green" id="button_more_bet25" data-amount="25">
-        +25
-      </button>
-      <button class="pokerchip black" id="button_more_bet50" data-amount="50">
-        +50
-      </button>
-      <button
-        class="pokerchip purple"
-        id="button_more_bet100"
-        data-amount="100"
-      >
-        +100
       </button>
     </ul>
 
